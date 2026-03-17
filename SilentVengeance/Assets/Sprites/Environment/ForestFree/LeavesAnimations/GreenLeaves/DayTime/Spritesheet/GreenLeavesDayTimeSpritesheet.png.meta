@@ -1,0 +1,2912 @@
+fileFormatVersion: 2
+guid: 7863efe049a75c448aaeaf29283fbdda
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7628554812404296887
+    second: GreenLeavesDayTimeSpritesheet_0
+  - first:
+      213: 1922944252308373697
+    second: GreenLeavesDayTimeSpritesheet_1
+  - first:
+      213: 4177349630903975870
+    second: GreenLeavesDayTimeSpritesheet_2
+  - first:
+      213: -5148139272804115773
+    second: GreenLeavesDayTimeSpritesheet_3
+  - first:
+      213: 8498377872815542690
+    second: GreenLeavesDayTimeSpritesheet_4
+  - first:
+      213: -1429001283423771209
+    second: GreenLeavesDayTimeSpritesheet_5
+  - first:
+      213: 2817843992051405087
+    second: GreenLeavesDayTimeSpritesheet_6
+  - first:
+      213: -5712335948981993369
+    second: GreenLeavesDayTimeSpritesheet_7
+  - first:
+      213: -249579423927364165
+    second: GreenLeavesDayTimeSpritesheet_8
+  - first:
+      213: -8972131328079800772
+    second: GreenLeavesDayTimeSpritesheet_9
+  - first:
+      213: 6127537613358110991
+    second: GreenLeavesDayTimeSpritesheet_10
+  - first:
+      213: -6180937509316420796
+    second: GreenLeavesDayTimeSpritesheet_11
+  - first:
+      213: -1947565892165250508
+    second: GreenLeavesDayTimeSpritesheet_12
+  - first:
+      213: -8380074926820530337
+    second: GreenLeavesDayTimeSpritesheet_13
+  - first:
+      213: -6711877225465508272
+    second: GreenLeavesDayTimeSpritesheet_14
+  - first:
+      213: 7598954635468637186
+    second: GreenLeavesDayTimeSpritesheet_15
+  - first:
+      213: 1281464129650996867
+    second: GreenLeavesDayTimeSpritesheet_16
+  - first:
+      213: 3091548165929103616
+    second: GreenLeavesDayTimeSpritesheet_17
+  - first:
+      213: 5363270558150783548
+    second: GreenLeavesDayTimeSpritesheet_18
+  - first:
+      213: 7466442745877196112
+    second: GreenLeavesDayTimeSpritesheet_19
+  - first:
+      213: -9207025851815837858
+    second: GreenLeavesDayTimeSpritesheet_20
+  - first:
+      213: 2976391688195285944
+    second: GreenLeavesDayTimeSpritesheet_21
+  - first:
+      213: -8161157702989863885
+    second: GreenLeavesDayTimeSpritesheet_22
+  - first:
+      213: -9110065287065619083
+    second: GreenLeavesDayTimeSpritesheet_23
+  - first:
+      213: 2885752697774173860
+    second: GreenLeavesDayTimeSpritesheet_24
+  - first:
+      213: 4410205421351630868
+    second: GreenLeavesDayTimeSpritesheet_25
+  - first:
+      213: 5602297404092526503
+    second: GreenLeavesDayTimeSpritesheet_26
+  - first:
+      213: -1105443761939544399
+    second: GreenLeavesDayTimeSpritesheet_27
+  - first:
+      213: -7482588265643429534
+    second: GreenLeavesDayTimeSpritesheet_28
+  - first:
+      213: 2163427645343928020
+    second: GreenLeavesDayTimeSpritesheet_29
+  - first:
+      213: -8725355785187845497
+    second: GreenLeavesDayTimeSpritesheet_30
+  - first:
+      213: -4051541015932181291
+    second: GreenLeavesDayTimeSpritesheet_31
+  - first:
+      213: 2673380465307832599
+    second: GreenLeavesDayTimeSpritesheet_32
+  - first:
+      213: -1822797499268827299
+    second: GreenLeavesDayTimeSpritesheet_33
+  - first:
+      213: 6549083555153138699
+    second: GreenLeavesDayTimeSpritesheet_34
+  - first:
+      213: 8800514065283666757
+    second: GreenLeavesDayTimeSpritesheet_35
+  - first:
+      213: 838810670889106654
+    second: GreenLeavesDayTimeSpritesheet_36
+  - first:
+      213: 1855173499794791743
+    second: GreenLeavesDayTimeSpritesheet_37
+  - first:
+      213: -2486542253950872291
+    second: GreenLeavesDayTimeSpritesheet_38
+  - first:
+      213: 5081876521501027021
+    second: GreenLeavesDayTimeSpritesheet_39
+  - first:
+      213: 6677767890509101487
+    second: GreenLeavesDayTimeSpritesheet_40
+  - first:
+      213: -3536927566768453791
+    second: GreenLeavesDayTimeSpritesheet_41
+  - first:
+      213: -6039295056327828882
+    second: GreenLeavesDayTimeSpritesheet_42
+  - first:
+      213: -1728923290691962174
+    second: GreenLeavesDayTimeSpritesheet_43
+  - first:
+      213: -7223750574469243999
+    second: GreenLeavesDayTimeSpritesheet_44
+  - first:
+      213: 205024537770000996
+    second: GreenLeavesDayTimeSpritesheet_45
+  - first:
+      213: -2857916158172860894
+    second: GreenLeavesDayTimeSpritesheet_46
+  - first:
+      213: -7738762755469915112
+    second: GreenLeavesDayTimeSpritesheet_47
+  - first:
+      213: 1499841573935887270
+    second: GreenLeavesDayTimeSpritesheet_48
+  - first:
+      213: -7581402201090528916
+    second: GreenLeavesDayTimeSpritesheet_49
+  - first:
+      213: 1470966559839558979
+    second: GreenLeavesDayTimeSpritesheet_50
+  - first:
+      213: -6607516602224826077
+    second: GreenLeavesDayTimeSpritesheet_51
+  - first:
+      213: 5952716218017279515
+    second: GreenLeavesDayTimeSpritesheet_52
+  - first:
+      213: -6446883382647736421
+    second: GreenLeavesDayTimeSpritesheet_53
+  - first:
+      213: -3029414121639828011
+    second: GreenLeavesDayTimeSpritesheet_54
+  - first:
+      213: -8083659284101612535
+    second: GreenLeavesDayTimeSpritesheet_55
+  - first:
+      213: -4371708137319542775
+    second: GreenLeavesDayTimeSpritesheet_56
+  - first:
+      213: -6511732216179919932
+    second: GreenLeavesDayTimeSpritesheet_57
+  - first:
+      213: 1922311204726230254
+    second: GreenLeavesDayTimeSpritesheet_58
+  - first:
+      213: 1705938361406403647
+    second: GreenLeavesDayTimeSpritesheet_59
+  - first:
+      213: -3706590097370073886
+    second: GreenLeavesDayTimeSpritesheet_60
+  - first:
+      213: -979474754145438944
+    second: GreenLeavesDayTimeSpritesheet_61
+  - first:
+      213: 8281206894578685892
+    second: GreenLeavesDayTimeSpritesheet_62
+  - first:
+      213: 6514445743095002986
+    second: GreenLeavesDayTimeSpritesheet_63
+  - first:
+      213: -6479991365023257972
+    second: GreenLeavesDayTimeSpritesheet_64
+  - first:
+      213: -7437540593799743901
+    second: GreenLeavesDayTimeSpritesheet_65
+  - first:
+      213: 266572165800355202
+    second: GreenLeavesDayTimeSpritesheet_66
+  - first:
+      213: 7904349503957398047
+    second: GreenLeavesDayTimeSpritesheet_67
+  - first:
+      213: -6728821177625832646
+    second: GreenLeavesDayTimeSpritesheet_68
+  - first:
+      213: 3337793897093295671
+    second: GreenLeavesDayTimeSpritesheet_69
+  - first:
+      213: 6869656274168116687
+    second: GreenLeavesDayTimeSpritesheet_70
+  - first:
+      213: -6027455322978743388
+    second: GreenLeavesDayTimeSpritesheet_71
+  - first:
+      213: 1746093086562636860
+    second: GreenLeavesDayTimeSpritesheet_72
+  - first:
+      213: -49561414696428589
+    second: GreenLeavesDayTimeSpritesheet_73
+  - first:
+      213: 4765025125404189457
+    second: GreenLeavesDayTimeSpritesheet_74
+  - first:
+      213: 6437248696708938293
+    second: GreenLeavesDayTimeSpritesheet_75
+  - first:
+      213: 4303219911626450514
+    second: GreenLeavesDayTimeSpritesheet_76
+  - first:
+      213: 145401547240405405
+    second: GreenLeavesDayTimeSpritesheet_77
+  - first:
+      213: 8842105757141492647
+    second: GreenLeavesDayTimeSpritesheet_78
+  - first:
+      213: -7731007151252944995
+    second: GreenLeavesDayTimeSpritesheet_79
+  - first:
+      213: -6027974587974681548
+    second: GreenLeavesDayTimeSpritesheet_80
+  - first:
+      213: 8207298846861762507
+    second: GreenLeavesDayTimeSpritesheet_81
+  - first:
+      213: 8111151158640496935
+    second: GreenLeavesDayTimeSpritesheet_82
+  - first:
+      213: 474530348782171425
+    second: GreenLeavesDayTimeSpritesheet_83
+  - first:
+      213: -4425326378227271355
+    second: GreenLeavesDayTimeSpritesheet_84
+  - first:
+      213: 8699891747190803615
+    second: GreenLeavesDayTimeSpritesheet_85
+  - first:
+      213: 6514759250748991593
+    second: GreenLeavesDayTimeSpritesheet_86
+  - first:
+      213: 5446250458308899212
+    second: GreenLeavesDayTimeSpritesheet_87
+  - first:
+      213: -7356216788215957406
+    second: GreenLeavesDayTimeSpritesheet_88
+  - first:
+      213: 2054620775718195415
+    second: GreenLeavesDayTimeSpritesheet_89
+  - first:
+      213: 6994894496693780448
+    second: GreenLeavesDayTimeSpritesheet_90
+  - first:
+      213: -339221320747206717
+    second: GreenLeavesDayTimeSpritesheet_91
+  - first:
+      213: 2806573272192341137
+    second: GreenLeavesDayTimeSpritesheet_92
+  - first:
+      213: -7048399945976366352
+    second: GreenLeavesDayTimeSpritesheet_93
+  - first:
+      213: 2146446891369139571
+    second: GreenLeavesDayTimeSpritesheet_94
+  - first:
+      213: 2881069074928174000
+    second: GreenLeavesDayTimeSpritesheet_95
+  - first:
+      213: -2090849498264391640
+    second: GreenLeavesDayTimeSpritesheet_96
+  - first:
+      213: 8263726508835227011
+    second: GreenLeavesDayTimeSpritesheet_97
+  - first:
+      213: -7428519900347620052
+    second: GreenLeavesDayTimeSpritesheet_98
+  - first:
+      213: -8062747444111250960
+    second: GreenLeavesDayTimeSpritesheet_99
+  - first:
+      213: -1689366056912689337
+    second: GreenLeavesDayTimeSpritesheet_100
+  - first:
+      213: 1239169664555643392
+    second: GreenLeavesDayTimeSpritesheet_101
+  - first:
+      213: -8329128167496395705
+    second: GreenLeavesDayTimeSpritesheet_102
+  - first:
+      213: -8165731739073500434
+    second: GreenLeavesDayTimeSpritesheet_103
+  - first:
+      213: 8798762390931473686
+    second: GreenLeavesDayTimeSpritesheet_104
+  - first:
+      213: -352736528367332307
+    second: GreenLeavesDayTimeSpritesheet_105
+  - first:
+      213: 2441765644487275510
+    second: GreenLeavesDayTimeSpritesheet_106
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 88
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9439b01e0dde12690800000000000000
+      internalID: -7628554812404296887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 86
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c048b9fb9bafaa10800000000000000
+      internalID: 1922944252308373697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 88
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebff3a45b5de8f930800000000000000
+      internalID: 4177349630903975870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 83
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cad54e7b922e88b0800000000000000
+      internalID: -5148139272804115773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 85
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1d53426ad40f570800000000000000
+      internalID: 8498377872815542690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 85
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5e2f567ea2b2ce0800000000000000
+      internalID: -1429001283423771209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 87
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1151b26e2efa1720800000000000000
+      internalID: 2817843992051405087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 83
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7600c3b38b4b9b0b0800000000000000
+      internalID: -5712335948981993369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 2185
+        y: 84
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb5109516d0598cf0800000000000000
+      internalID: -249579423927364165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 79
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3656afe7169c7380800000000000000
+      internalID: -8972131328079800772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 73
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f091e088ef2690550800000000000000
+      internalID: 6127537613358110991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 77
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b9e425516e83aa0800000000000000
+      internalID: -6180937509316420796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 79
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432d2d4c32bd8f4e0800000000000000
+      internalID: -1947565892165250508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 73
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5764bbe04ef3bb80800000000000000
+      internalID: -8380074926820530337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 74
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e0818793f9ad2a0800000000000000
+      internalID: -6711877225465508272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 76
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2048a6fdaf8e47960800000000000000
+      internalID: 7598954635468637186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 76
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386b04026dca8c110800000000000000
+      internalID: 1281464129650996867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 78
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001f63c5da267ea20800000000000000
+      internalID: 3091548165929103616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2010
+        y: 72
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3273e4282a2e6a40800000000000000
+      internalID: 5363270558150783548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 2238
+        y: 74
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d6dc35e122e9760800000000000000
+      internalID: 7466442745877196112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 2316
+        y: 75
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5fbda8c4c21a3080800000000000000
+      internalID: -9207025851815837858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 69
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b32e4788744e4920800000000000000
+      internalID: 2976391688195285944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 64
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334a85d0f4ebdbe80800000000000000
+      internalID: -8161157702989863885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 68
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57536db73eb829180800000000000000
+      internalID: -9110065287065619083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 71
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae647c0ac04c0820800000000000000
+      internalID: 2885752697774173860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 66
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4187a26e672343d30800000000000000
+      internalID: 4410205421351630868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 68
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af27098ecb5fbd40800000000000000
+      internalID: 5602297404092526503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 68
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b60c6261cca8a0f0800000000000000
+      internalID: -1105443761939544399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 70
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26131d9ed91882890800000000000000
+      internalID: -7482588265643429534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 65
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de0cf92bf9060e10800000000000000
+      internalID: 2163427645343928020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 70
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a9afc642f49e680800000000000000
+      internalID: -8725355785187845497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 65
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4ef6879e806c7c0800000000000000
+      internalID: -4051541015932181291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 2148
+        y: 67
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71154287e51c91520800000000000000
+      internalID: 2673380465307832599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 2377
+        y: 68
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d577c9ef45f14b6e0800000000000000
+      internalID: -1822797499268827299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 63
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04514d7bc403ea50800000000000000
+      internalID: 6549083555153138699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 58
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543df0e4ae4b12a70800000000000000
+      internalID: 8800514065283666757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 59
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edcf6286cdd04ab00800000000000000
+      internalID: 838810670889106654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 63
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d9cfb0876eeb910800000000000000
+      internalID: 1855173499794791743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 57
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d15524a8ef60e7dd0800000000000000
+      internalID: -2486542253950872291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 61
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca677875c3768640800000000000000
+      internalID: 5081876521501027021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 63
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9fd4e14823cac50800000000000000
+      internalID: 6677767890509101487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 57
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167ca721e1f4aeec0800000000000000
+      internalID: -3536927566768453791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 63
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a9ec1d42d103ca0800000000000000
+      internalID: -6039295056327828882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 58
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2caf7666d61a108e0800000000000000
+      internalID: -1728923290691962174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 60
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab9cb6202510cb90800000000000000
+      internalID: -7223750574469243999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 60
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46205081bb468d200800000000000000
+      internalID: 205024537770000996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 2279
+        y: 62
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22ee1426564a658d0800000000000000
+      internalID: -2857916158172860894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 56
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81c413f86446a9490800000000000000
+      internalID: -7738762755469915112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 53
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3bfc907f180d410800000000000000
+      internalID: 1499841573935887270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 52
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6962a8bdd279c690800000000000000
+      internalID: -7581402201090528916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 53
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d17bbea4ce96410800000000000000
+      internalID: 1470966559839558979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 329a4ec88a26d44a0800000000000000
+      internalID: -6607516602224826077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 50
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e60a78cdb4c9250800000000000000
+      internalID: 5952716218017279515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 54
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97b9e478b11886a0800000000000000
+      internalID: -6446883382647736421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 55
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d52b1a28eb55f5d0800000000000000
+      internalID: -3029414121639828011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 52
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90cb5ddc5b211df80800000000000000
+      internalID: -8083659284101612535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 54
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90052658c929453c0800000000000000
+      internalID: -4371708137319542775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 52
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3f02ecc0ea1a5a0800000000000000
+      internalID: -6511732216179919932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eecc5791bdb6daa10800000000000000
+      internalID: 1922311204726230254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 54
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f343758b6e5bca710800000000000000
+      internalID: 1705938361406403647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 51
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4b64ed1fb8f8cc0800000000000000
+      internalID: -3706590097370073886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 54
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023b2bc86e43862f0800000000000000
+      internalID: -979474754145438944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 2170
+        y: 51
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7d0ee7bc1cce270800000000000000
+      internalID: 8281206894578685892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 47
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a67bbb963e5f76a50800000000000000
+      internalID: 6514445743095002986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 43
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8aa03c9f227216a0800000000000000
+      internalID: -6479991365023257972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 44
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 366b4085c3c88c890800000000000000
+      internalID: -7437540593799743901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 48
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2856981f8fd03b300800000000000000
+      internalID: 266572165800355202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 46
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f127aebaef3e1bd60800000000000000
+      internalID: 7904349503957398047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 48
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a339c7e2acc6e92a0800000000000000
+      internalID: -6728821177625832646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 1839
+        y: 43
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e66b17dd9325e20800000000000000
+      internalID: 3337793897093295671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 2086
+        y: 45
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc5f2defbfbe55f50800000000000000
+      internalID: 6869656274168116687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 45
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab805e815d2a5ca0800000000000000
+      internalID: -6027455322978743388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 38
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c34d459396e5b3810800000000000000
+      internalID: 1746093086562636860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 40
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3db147ae72cef4ff0800000000000000
+      internalID: -49561414696428589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1132789fa15c02240800000000000000
+      internalID: 4765025125404189457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 37
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53abe2a6593b55950800000000000000
+      internalID: 6437248696708938293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 41
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 256e1eec5bb18bb30800000000000000
+      internalID: 4303219911626450514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 35
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d997e05dfe1940200800000000000000
+      internalID: 145401547240405405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 39
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3ead0b65875ba70800000000000000
+      internalID: 8842105757141492647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 41
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d974091e4f1f5b490800000000000000
+      internalID: -7731007151252944995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 35
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43cffa0cc05585ca0800000000000000
+      internalID: -6027974587974681548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 1973
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf1bac21de26e170800000000000000
+      internalID: 8207298846861762507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 2220
+        y: 38
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721d34a0109909070800000000000000
+      internalID: 8111151158640496935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 32
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125bd4a86ded59600800000000000000
+      internalID: 474530348782171425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 34
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549f89afa151692c0800000000000000
+      internalID: -4425326378227271355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 28
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c09a733793cb870800000000000000
+      internalID: 8699891747190803615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 30
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968651a9503196a50800000000000000
+      internalID: 6514759250748991593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 31
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c817f45bfe7f49b40800000000000000
+      internalID: 5446250458308899212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 29
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2687f975ec779e990800000000000000
+      internalID: -7356216788215957406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 33
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d012dca5ba738c10800000000000000
+      internalID: 2054620775718195415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 29
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef74c4fb7bd21160800000000000000
+      internalID: 6994894496693780448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 30
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7bf9c8108da4bf0800000000000000
+      internalID: -339221320747206717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 32
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194512d6583f2f620800000000000000
+      internalID: 2806573272192341137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 26
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa3239d79d0f2e90800000000000000
+      internalID: -7048399945976366352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 21
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d8c494316b9cd10800000000000000
+      internalID: 2146446891369139571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 26
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b305702f0d9bf720800000000000000
+      internalID: 2881069074928174000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 21
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820b529857fcbf2e0800000000000000
+      internalID: -2090849498264391640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 23
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3854a180a77aea270800000000000000
+      internalID: 8263726508835227011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c252cd4328898e890800000000000000
+      internalID: -7428519900347620052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 25
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f96f08faed5b1090800000000000000
+      internalID: -8062747444111250960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 24
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747ed1a958a2e88e0800000000000000
+      internalID: -1689366056912689337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 27
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00277489e3a623110800000000000000
+      internalID: 1239169664555643392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 24
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7445dafaf0ef86c80800000000000000
+      internalID: -8329128167496395705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 2246
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea24694f3e7dae80800000000000000
+      internalID: -8165731739073500434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 19
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6158986d6cb7b1a70800000000000000
+      internalID: 8798762390931473686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 20
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d245c5f0ff3da1bf0800000000000000
+      internalID: -352736528367332307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenLeavesDayTimeSpritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 2381
+        y: 19
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3ba68aae4e2e120800000000000000
+      internalID: 2441765644487275510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GreenLeavesDayTimeSpritesheet_0: -7628554812404296887
+      GreenLeavesDayTimeSpritesheet_1: 1922944252308373697
+      GreenLeavesDayTimeSpritesheet_10: 6127537613358110991
+      GreenLeavesDayTimeSpritesheet_100: -1689366056912689337
+      GreenLeavesDayTimeSpritesheet_101: 1239169664555643392
+      GreenLeavesDayTimeSpritesheet_102: -8329128167496395705
+      GreenLeavesDayTimeSpritesheet_103: -8165731739073500434
+      GreenLeavesDayTimeSpritesheet_104: 8798762390931473686
+      GreenLeavesDayTimeSpritesheet_105: -352736528367332307
+      GreenLeavesDayTimeSpritesheet_106: 2441765644487275510
+      GreenLeavesDayTimeSpritesheet_11: -6180937509316420796
+      GreenLeavesDayTimeSpritesheet_12: -1947565892165250508
+      GreenLeavesDayTimeSpritesheet_13: -8380074926820530337
+      GreenLeavesDayTimeSpritesheet_14: -6711877225465508272
+      GreenLeavesDayTimeSpritesheet_15: 7598954635468637186
+      GreenLeavesDayTimeSpritesheet_16: 1281464129650996867
+      GreenLeavesDayTimeSpritesheet_17: 3091548165929103616
+      GreenLeavesDayTimeSpritesheet_18: 5363270558150783548
+      GreenLeavesDayTimeSpritesheet_19: 7466442745877196112
+      GreenLeavesDayTimeSpritesheet_2: 4177349630903975870
+      GreenLeavesDayTimeSpritesheet_20: -9207025851815837858
+      GreenLeavesDayTimeSpritesheet_21: 2976391688195285944
+      GreenLeavesDayTimeSpritesheet_22: -8161157702989863885
+      GreenLeavesDayTimeSpritesheet_23: -9110065287065619083
+      GreenLeavesDayTimeSpritesheet_24: 2885752697774173860
+      GreenLeavesDayTimeSpritesheet_25: 4410205421351630868
+      GreenLeavesDayTimeSpritesheet_26: 5602297404092526503
+      GreenLeavesDayTimeSpritesheet_27: -1105443761939544399
+      GreenLeavesDayTimeSpritesheet_28: -7482588265643429534
+      GreenLeavesDayTimeSpritesheet_29: 2163427645343928020
+      GreenLeavesDayTimeSpritesheet_3: -5148139272804115773
+      GreenLeavesDayTimeSpritesheet_30: -8725355785187845497
+      GreenLeavesDayTimeSpritesheet_31: -4051541015932181291
+      GreenLeavesDayTimeSpritesheet_32: 2673380465307832599
+      GreenLeavesDayTimeSpritesheet_33: -1822797499268827299
+      GreenLeavesDayTimeSpritesheet_34: 6549083555153138699
+      GreenLeavesDayTimeSpritesheet_35: 8800514065283666757
+      GreenLeavesDayTimeSpritesheet_36: 838810670889106654
+      GreenLeavesDayTimeSpritesheet_37: 1855173499794791743
+      GreenLeavesDayTimeSpritesheet_38: -2486542253950872291
+      GreenLeavesDayTimeSpritesheet_39: 5081876521501027021
+      GreenLeavesDayTimeSpritesheet_4: 8498377872815542690
+      GreenLeavesDayTimeSpritesheet_40: 6677767890509101487
+      GreenLeavesDayTimeSpritesheet_41: -3536927566768453791
+      GreenLeavesDayTimeSpritesheet_42: -6039295056327828882
+      GreenLeavesDayTimeSpritesheet_43: -1728923290691962174
+      GreenLeavesDayTimeSpritesheet_44: -7223750574469243999
+      GreenLeavesDayTimeSpritesheet_45: 205024537770000996
+      GreenLeavesDayTimeSpritesheet_46: -2857916158172860894
+      GreenLeavesDayTimeSpritesheet_47: -7738762755469915112
+      GreenLeavesDayTimeSpritesheet_48: 1499841573935887270
+      GreenLeavesDayTimeSpritesheet_49: -7581402201090528916
+      GreenLeavesDayTimeSpritesheet_5: -1429001283423771209
+      GreenLeavesDayTimeSpritesheet_50: 1470966559839558979
+      GreenLeavesDayTimeSpritesheet_51: -6607516602224826077
+      GreenLeavesDayTimeSpritesheet_52: 5952716218017279515
+      GreenLeavesDayTimeSpritesheet_53: -6446883382647736421
+      GreenLeavesDayTimeSpritesheet_54: -3029414121639828011
+      GreenLeavesDayTimeSpritesheet_55: -8083659284101612535
+      GreenLeavesDayTimeSpritesheet_56: -4371708137319542775
+      GreenLeavesDayTimeSpritesheet_57: -6511732216179919932
+      GreenLeavesDayTimeSpritesheet_58: 1922311204726230254
+      GreenLeavesDayTimeSpritesheet_59: 1705938361406403647
+      GreenLeavesDayTimeSpritesheet_6: 2817843992051405087
+      GreenLeavesDayTimeSpritesheet_60: -3706590097370073886
+      GreenLeavesDayTimeSpritesheet_61: -979474754145438944
+      GreenLeavesDayTimeSpritesheet_62: 8281206894578685892
+      GreenLeavesDayTimeSpritesheet_63: 6514445743095002986
+      GreenLeavesDayTimeSpritesheet_64: -6479991365023257972
+      GreenLeavesDayTimeSpritesheet_65: -7437540593799743901
+      GreenLeavesDayTimeSpritesheet_66: 266572165800355202
+      GreenLeavesDayTimeSpritesheet_67: 7904349503957398047
+      GreenLeavesDayTimeSpritesheet_68: -6728821177625832646
+      GreenLeavesDayTimeSpritesheet_69: 3337793897093295671
+      GreenLeavesDayTimeSpritesheet_7: -5712335948981993369
+      GreenLeavesDayTimeSpritesheet_70: 6869656274168116687
+      GreenLeavesDayTimeSpritesheet_71: -6027455322978743388
+      GreenLeavesDayTimeSpritesheet_72: 1746093086562636860
+      GreenLeavesDayTimeSpritesheet_73: -49561414696428589
+      GreenLeavesDayTimeSpritesheet_74: 4765025125404189457
+      GreenLeavesDayTimeSpritesheet_75: 6437248696708938293
+      GreenLeavesDayTimeSpritesheet_76: 4303219911626450514
+      GreenLeavesDayTimeSpritesheet_77: 145401547240405405
+      GreenLeavesDayTimeSpritesheet_78: 8842105757141492647
+      GreenLeavesDayTimeSpritesheet_79: -7731007151252944995
+      GreenLeavesDayTimeSpritesheet_8: -249579423927364165
+      GreenLeavesDayTimeSpritesheet_80: -6027974587974681548
+      GreenLeavesDayTimeSpritesheet_81: 8207298846861762507
+      GreenLeavesDayTimeSpritesheet_82: 8111151158640496935
+      GreenLeavesDayTimeSpritesheet_83: 474530348782171425
+      GreenLeavesDayTimeSpritesheet_84: -4425326378227271355
+      GreenLeavesDayTimeSpritesheet_85: 8699891747190803615
+      GreenLeavesDayTimeSpritesheet_86: 6514759250748991593
+      GreenLeavesDayTimeSpritesheet_87: 5446250458308899212
+      GreenLeavesDayTimeSpritesheet_88: -7356216788215957406
+      GreenLeavesDayTimeSpritesheet_89: 2054620775718195415
+      GreenLeavesDayTimeSpritesheet_9: -8972131328079800772
+      GreenLeavesDayTimeSpritesheet_90: 6994894496693780448
+      GreenLeavesDayTimeSpritesheet_91: -339221320747206717
+      GreenLeavesDayTimeSpritesheet_92: 2806573272192341137
+      GreenLeavesDayTimeSpritesheet_93: -7048399945976366352
+      GreenLeavesDayTimeSpritesheet_94: 2146446891369139571
+      GreenLeavesDayTimeSpritesheet_95: 2881069074928174000
+      GreenLeavesDayTimeSpritesheet_96: -2090849498264391640
+      GreenLeavesDayTimeSpritesheet_97: 8263726508835227011
+      GreenLeavesDayTimeSpritesheet_98: -7428519900347620052
+      GreenLeavesDayTimeSpritesheet_99: -8062747444111250960
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
