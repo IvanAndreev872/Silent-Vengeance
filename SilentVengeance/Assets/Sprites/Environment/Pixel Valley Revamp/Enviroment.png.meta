@@ -807,13 +807,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enviroment_10
+      name: Tree_4
       rect:
         serializedVersion: 2
-        x: 430
-        y: 523
-        width: 178
-        height: 162
+        x: 462
+        y: 533
+        width: 130
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1558,8 +1558,8 @@ TextureImporter:
       name: Enviroment_44
       rect:
         serializedVersion: 2
-        x: 591
-        y: 539
+        x: 599
+        y: 538
         width: 50
         height: 50
       alignment: 0
@@ -4148,7 +4148,6 @@ TextureImporter:
       Big_tree: -5396346266801985198
       Bush_1: 4255994774329467256
       Enviroment_0: -1520219296
-      Enviroment_10: 955099189262046444
       Enviroment_100: 1836022310951985560
       Enviroment_101: 5196379360444762481
       Enviroment_102: -8344801817017892488
@@ -4298,6 +4297,7 @@ TextureImporter:
       Tree_1: -123626252767495958
       Tree_2: -8828041561291108711
       Tree_3: -2044887664084716976
+      Tree_4: 955099189262046444
       left_end: 2064775212213459780
       left_up_grass_1: 8677301677178453557
       left_up_grass_2: -1346332615997556901
