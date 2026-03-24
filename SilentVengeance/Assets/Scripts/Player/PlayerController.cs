@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Ladder")]
+    [SerializeField] private float climbSpeed = 5f;
+
     private Rigidbody2D _rb;
     private Animator _animator;
     private PlayerInputActions _input;
@@ -31,6 +34,10 @@ public class PlayerController : MonoBehaviour
     private bool _canRoll = true;
     private float _facingDirection = 1f;
 
+    private bool _isOnLadder = false;
+
+    [HideInInspector] public Vector2 platformVelocity = Vector2.zero;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -41,34 +48,42 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _input.Player.Enable();
-        _input.Player.Jump.performed   += OnJump;
-        _input.Player.Crouch.performed += OnCrouchStart;
-        _input.Player.Crouch.canceled  += OnCrouchEnd;
-        _input.Player.Roll.performed   += OnRoll;
+        _input.Player.Jump.performed     += OnJump;
+        _input.Player.Crouch.performed   += OnCrouchStart;
+        _input.Player.Crouch.canceled    += OnCrouchEnd;
+        _input.Player.Roll.performed     += OnRoll;
         _input.Player.Interact.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-        _input.Player.Jump.performed   -= OnJump;
-        _input.Player.Crouch.performed -= OnCrouchStart;
-        _input.Player.Crouch.canceled  -= OnCrouchEnd;
-        _input.Player.Roll.performed   -= OnRoll;
+        _input.Player.Jump.performed     -= OnJump;
+        _input.Player.Crouch.performed   -= OnCrouchStart;
+        _input.Player.Crouch.canceled    -= OnCrouchEnd;
+        _input.Player.Roll.performed     -= OnRoll;
         _input.Player.Interact.performed -= OnInteract;
         _input.Player.Disable();
     }
 
     private void Update()
     {
-        _moveInput = _input.Player.Move.ReadValue<Vector2>();
+        _moveInput  = _input.Player.Move.ReadValue<Vector2>();
         _isGrounded = Physics2D.OverlapCircle(
             groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Запоминаем направление взгляда
         if (_moveInput.x != 0)
             _facingDirection = Mathf.Sign(_moveInput.x);
 
-        // Animator
+        if (_isOnLadder)
+        {
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _moveInput.y * climbSpeed);
+            _rb.gravityScale = 0f;
+        }
+        else
+        {
+            _rb.gravityScale = 1f;
+        }
+
         if (_animator != null)
         {
             _animator.SetFloat("Speed", Mathf.Abs(_moveInput.x));
@@ -80,10 +95,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isRolling) return; // во время переката не управляем движением
+        if (_isRolling) return;
 
         float speed = _isCrouching ? crouchSpeed : moveSpeed;
-        _rb.linearVelocity = new Vector2(_moveInput.x * speed, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(_moveInput.x * speed + platformVelocity.x, _rb.linearVelocity.y);
 
         if (_moveInput.x != 0)
             transform.localScale = new Vector3(_facingDirection, 1f, 1f);
@@ -107,23 +122,32 @@ public class PlayerController : MonoBehaviour
     private IEnumerator RollCoroutine()
     {
         _isRolling = true;
-        _canRoll = false;
+        _canRoll   = false;
 
-        // Рывок в направлении взгляда
         _rb.linearVelocity = new Vector2(_facingDirection * rollSpeed, _rb.linearVelocity.y);
 
         yield return new WaitForSeconds(rollDuration);
-
         _isRolling = false;
 
         yield return new WaitForSeconds(rollCooldown);
-
         _canRoll = true;
     }
 
     private void OnInteract(InputAction.CallbackContext ctx)
     {
         Debug.Log("Interact — реализуем позже");
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Ladder"))
+            _isOnLadder = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Ladder"))
+            _isOnLadder = false;
     }
 
     private void OnDrawGizmosSelected()
