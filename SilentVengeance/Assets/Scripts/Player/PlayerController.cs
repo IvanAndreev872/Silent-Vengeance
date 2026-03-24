@@ -17,11 +17,24 @@ public class PlayerController : MonoBehaviour
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckRadius = 0.1f;
+    [SerializeField] private float groundCheckRadius = 0.3f;
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Ladder")]
     [SerializeField] private float climbSpeed = 5f;
+
+    [Header("Slope")]
+    [SerializeField] private float maxSlopeAngle = 45f;
+
+    [Header("Step Up")]
+    [SerializeField] private float stepHeight = 0.4f;
+
+    [Header("Jump Buffer")]
+    [SerializeField] private float jumpBufferTime = 0.15f;
+    [SerializeField] private float jumpCooldownTime = 0.25f;
+
+    [Header("Coyote Time")]
+    [SerializeField] private float coyoteTime = 0.12f;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -35,6 +48,13 @@ public class PlayerController : MonoBehaviour
     private float _facingDirection = 1f;
 
     private bool _isOnLadder = false;
+    private Vector2 _groundNormal = Vector2.up;
+
+    private bool _jumpRequested = false;
+    private float _jumpBufferTimer = 0f;
+    private float _coyoteTimer = 0f;
+    private float _jumpCooldown = 0f;
+    private bool _justJumped = false;
 
     [HideInInspector] public Vector2 platformVelocity = Vector2.zero;
 
@@ -74,6 +94,22 @@ public class PlayerController : MonoBehaviour
         if (_moveInput.x != 0)
             _facingDirection = Mathf.Sign(_moveInput.x);
 
+        // Jump Cooldown
+        if (_jumpCooldown > 0f)
+            _jumpCooldown -= Time.deltaTime;
+
+        // Coyote Time — не сбрасываем пока действует cooldown
+        if (_isGrounded && _jumpCooldown <= 0f)
+            _coyoteTimer = coyoteTime;
+        else if (!_isGrounded)
+            _coyoteTimer -= Time.deltaTime;
+
+        // Jump Buffer
+        if (_jumpBufferTimer > 0f)
+            _jumpBufferTimer -= Time.deltaTime;
+        else
+            _jumpRequested = false;
+
         if (_isOnLadder)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _moveInput.y * climbSpeed);
@@ -95,19 +131,92 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _justJumped = false;
+
+        // Прыжок через Coyote Time + Jump Buffer
+        if (_jumpRequested && _coyoteTimer > 0f && !_isRolling)
+        {
+            _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            _jumpRequested = false;
+            _jumpBufferTimer = 0f;
+            _coyoteTimer = 0f;
+            _justJumped = true;
+            _jumpCooldown = jumpCooldownTime;
+        }
+
         if (_isRolling) return;
 
         float speed = _isCrouching ? crouchSpeed : moveSpeed;
-        _rb.linearVelocity = new Vector2(_moveInput.x * speed + platformVelocity.x, _rb.linearVelocity.y);
+
+        // GroundSnap отключён во время cooldown после прыжка
+        if (_moveInput.x != 0 && !_justJumped && _rb.linearVelocity.y <= 0f && _jumpCooldown <= 0f)
+            GroundSnap();
+
+        bool isOnSlope = _isGrounded && _groundNormal != Vector2.up;
+        float slopeAngle = Vector2.Angle(_groundNormal, Vector2.up);
+        bool isSlopeWalkable = slopeAngle <= maxSlopeAngle;
+
+        // Slope не применяется в кадре прыжка и во время cooldown
+        bool applySlope = isOnSlope && isSlopeWalkable && _moveInput.x != 0
+                          && !_justJumped && _jumpCooldown <= 0f;
+
+        Vector2 velocity;
+
+        if (applySlope)
+        {
+            Vector2 slopeDir = Vector2.Perpendicular(_groundNormal) * -Mathf.Sign(_moveInput.x);
+            velocity = slopeDir * speed;
+        }
+        else
+        {
+            velocity = new Vector2(_moveInput.x * speed, _rb.linearVelocity.y);
+        }
+
+        _rb.linearVelocity = new Vector2(
+            velocity.x + platformVelocity.x,
+            applySlope ? velocity.y : _rb.linearVelocity.y
+        );
 
         if (_moveInput.x != 0)
             transform.localScale = new Vector3(_facingDirection, 1f, 1f);
     }
 
+    private void GroundSnap()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position, Vector2.down, stepHeight + 0.1f, groundLayer);
+
+        if (hit.collider == null) return;
+
+        float dist = transform.position.y - hit.point.y;
+        if (dist > 0.05f && dist <= stepHeight)
+        {
+            Vector2 targetPos = new Vector2(_rb.position.x, hit.point.y);
+            _rb.MovePosition(Vector2.Lerp(_rb.position, targetPos, 0.5f));
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        foreach (ContactPoint2D contact in col.contacts)
+        {
+            if (contact.normal.y > 0.5f)
+            {
+                _groundNormal = contact.normal;
+                return;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        _groundNormal = Vector2.up;
+    }
+
     private void OnJump(InputAction.CallbackContext ctx)
     {
-        if (_isGrounded && !_isRolling)
-            _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        _jumpRequested = true;
+        _jumpBufferTimer = jumpBufferTime;
     }
 
     private void OnCrouchStart(InputAction.CallbackContext ctx) => _isCrouching = true;
@@ -155,5 +264,8 @@ public class PlayerController : MonoBehaviour
         if (groundCheck == null) return;
         Gizmos.color = _isGrounded ? Color.green : Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(transform.position, Vector2.down * (stepHeight + 0.1f));
     }
 }
