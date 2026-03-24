@@ -34,8 +34,9 @@ public class PlayerController : MonoBehaviour
     private bool _canRoll = true;
     private float _facingDirection = 1f;
 
-    // Лестница
     private bool _isOnLadder = false;
+
+    [HideInInspector] public Vector2 platformVelocity = Vector2.zero;
 
     private void Awake()
     {
@@ -73,10 +74,9 @@ public class PlayerController : MonoBehaviour
         if (_moveInput.x != 0)
             _facingDirection = Mathf.Sign(_moveInput.x);
 
-        // Лестница — управление по вертикали через Input System
         if (_isOnLadder)
         {
-            _rb.linearVelocity  = new Vector2(_rb.linearVelocity.x, _moveInput.y * climbSpeed);
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _moveInput.y * climbSpeed);
             _rb.gravityScale = 0f;
         }
         else
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         if (_isRolling) return;
 
         float speed = _isCrouching ? crouchSpeed : moveSpeed;
-        _rb.linearVelocity = new Vector2(_moveInput.x * speed, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(_moveInput.x * speed + platformVelocity.x, _rb.linearVelocity.y);
 
         if (_moveInput.x != 0)
             transform.localScale = new Vector3(_facingDirection, 1f, 1f);
