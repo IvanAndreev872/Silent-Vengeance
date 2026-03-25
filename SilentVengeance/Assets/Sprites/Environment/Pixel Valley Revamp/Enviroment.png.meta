@@ -1555,13 +1555,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enviroment_44
+      name: liana_ground_left
       rect:
         serializedVersion: 2
-        x: 599
-        y: 538
-        width: 50
-        height: 50
+        x: 704
+        y: 316
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1929,13 +1929,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enviroment_61
+      name: liana_ground_cente
       rect:
         serializedVersion: 2
-        x: 819
-        y: 395
-        width: 13
-        height: 9
+        x: 712
+        y: 317
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2325,15 +2325,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enviroment_79
+      name: liana_ground_center
       rect:
         serializedVersion: 2
-        x: 804
-        y: 322
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 733
+        y: 369
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: -19.511545, y: 2.686137}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2501,13 +2501,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enviroment_87
+      name: liana_ground_right
       rect:
         serializedVersion: 2
-        x: 642
-        y: 299
-        width: 23
-        height: 17
+        x: 720
+        y: 316
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4238,7 +4238,6 @@ TextureImporter:
       Enviroment_4: -549416565
       Enviroment_40: 7346322877081118779
       Enviroment_41: 6873971015000847045
-      Enviroment_44: -3050914261373180084
       Enviroment_45: 5556080367168986272
       Enviroment_46: 1893087574797045700
       Enviroment_47: -9197459492147504294
@@ -4252,7 +4251,6 @@ TextureImporter:
       Enviroment_58: 7549335198920029791
       Enviroment_59: 8960457064078023613
       Enviroment_60: 6438321127573521787
-      Enviroment_61: -7216139598300547816
       Enviroment_62: 3408410167200807799
       Enviroment_63: 8191106366367444007
       Enviroment_64: 6362822438876187047
@@ -4268,7 +4266,6 @@ TextureImporter:
       Enviroment_76: -3035552985535905184
       Enviroment_77: -1463504896489987155
       Enviroment_78: 7952010230829738694
-      Enviroment_79: -2821727193301178872
       Enviroment_80: 9064429346949356785
       Enviroment_81: 8274787152387789123
       Enviroment_82: 2299569272390539524
@@ -4276,7 +4273,6 @@ TextureImporter:
       Enviroment_84: -6307025540258442511
       Enviroment_85: -4968784789721947431
       Enviroment_86: -3157264092131810881
-      Enviroment_87: 8137976947705376240
       Enviroment_88: 7506377638538599492
       Enviroment_89: 8859254841633572344
       Enviroment_90: -2274600977443111187
@@ -4300,6 +4296,10 @@ TextureImporter:
       left_end: 2064775212213459780
       left_up_grass_1: 8677301677178453557
       left_up_grass_2: -1346332615997556901
+      liana_ground_cente: -7216139598300547816
+      liana_ground_center: -2821727193301178872
+      liana_ground_left: -3050914261373180084
+      liana_ground_right: 8137976947705376240
       right_end: -9030329824578680296
       right_up_grass_2: 8615462059371855731
       underground: 4682084772187208333

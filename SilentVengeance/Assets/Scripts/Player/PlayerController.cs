@@ -118,6 +118,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Debug.Log("Space detected via Keyboard.current");
+        }
+
         _moveInput  = _input.Player.Move.ReadValue<Vector2>();
         _isGrounded = Physics2D.OverlapCircle(
             groundCheck.position, groundCheckRadius, groundLayer);
@@ -261,7 +266,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnJump(InputAction.CallbackContext ctx)
-    {
+    {   
+        Debug.Log($"OnJump called | coyoteTimer: {_coyoteTimer} | isGrounded: {_isGrounded}");
         _jumpRequested = true;
         _jumpBufferTimer = jumpBufferTime;
     }
