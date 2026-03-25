@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    public Node camefrom;
-    public List<Node> connections;
+    [HideInInspector] public float gScore;
+    [HideInInspector] public float hScore;
+    [HideInInspector] public Node camefrom;
 
-    public float gScore;
-    public float hScore;
+    public Vector2Int GridPosition =>
+        new Vector2Int(Mathf.RoundToInt(transform.position.x),
+                       Mathf.RoundToInt(transform.position.y));
 
-    public float fScore()
+    public float fScore() => gScore + hScore;
+
+    public void ResetPathData()
     {
-        return gScore + hScore;
+        gScore = float.MaxValue;
+        hScore = 0f;
+        camefrom = null;
     }
 }

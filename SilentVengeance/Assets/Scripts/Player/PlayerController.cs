@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     [Header("Ladder")]
     [SerializeField] private float climbSpeed = 5f;
 
+    [Header("Stealth / Noise")]
+    [SerializeField] private float landingNoiseDuration = 0.3f;
+    [SerializeField] private float landingNoiseThreshold = -3f;
+
     private Rigidbody2D _rb;
     private Animator _animator;
     private PlayerInputActions _input;
@@ -36,8 +40,41 @@ public class PlayerController : MonoBehaviour
 
     private bool _isOnLadder = false;
 
+    private bool _wasGroundedLastFrame = true;
+    private float _landingTimer = 0f;
+    private float _verticalVelocityLastFrame = 0f;
+
     [HideInInspector] public Vector2 platformVelocity = Vector2.zero;
 
+    public bool IsRunning =>
+        _isGrounded &&
+        !_isCrouching &&
+        !_isRolling &&
+        Mathf.Abs(_moveInput.x) > 0.1f;
+
+    public bool IsLanding => _landingTimer > 0f;
+    public bool IsCrouching => _isCrouching;
+    public bool IsRolling => _isRolling;
+    public bool IsOnLadder => _isOnLadder;
+    public bool IsGrounded => _isGrounded;
+
+    public float NoiseLevel
+    {
+        get
+        {
+            if (_isRolling) return 0.1f;
+            if (IsLanding) return 0.9f;
+            if (_isCrouching)
+            {
+                return Mathf.Abs(_moveInput.x) > 0.1f ? 0.2f : 0f;
+            }
+            if (Mathf.Abs(_moveInput.x) > 0.1f)
+            {
+                return _isGrounded ? 0.6f : 0.1f;
+            }
+            return 0f;
+        }
+    }
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -74,6 +111,8 @@ public class PlayerController : MonoBehaviour
         if (_moveInput.x != 0)
             _facingDirection = Mathf.Sign(_moveInput.x);
 
+            DetectLanding();
+
         if (_isOnLadder)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _moveInput.y * climbSpeed);
@@ -102,6 +141,29 @@ public class PlayerController : MonoBehaviour
 
         if (_moveInput.x != 0)
             transform.localScale = new Vector3(_facingDirection, 1f, 1f);
+    }
+
+    private void DetectLanding()
+    {
+        if (_landingTimer > 0f)
+        {
+            _landingTimer -= Time.deltaTime;
+        }
+
+        if (_isGrounded && !_wasGroundedLastFrame)
+        {
+            if (_verticalVelocityLastFrame < landingNoiseThreshold)
+            {
+                _landingTimer = landingNoiseDuration;
+
+                float fallIntensity = Mathf.Abs(_verticalVelocityLastFrame) /
+                                      Mathf.Abs(landingNoiseThreshold);
+                _landingTimer *= Mathf.Clamp(fallIntensity, 1f, 3f);
+            }
+        }
+
+        _wasGroundedLastFrame = _isGrounded;
+        _verticalVelocityLastFrame = _rb.linearVelocity.y;
     }
 
     private void OnJump(InputAction.CallbackContext ctx)

@@ -1,147 +1,200 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class JumpPointSearch : MonoBehaviour
 {
-    public static JumpPointSearch instance;
+    public static JumpPointSearch Instance { get; private set; }
 
-    List<Node> openSet;
-    HashSet<Node> closedSet;
-    int NodeLayerMask;
+    private List<Node> openSet;
+    private HashSet<Node> closedSet;
+    private NodeGrid grid;
+    private const int MAX_JUMP_DEPTH = 200;
 
     private void Awake()
     {
-        instance = this;
-        NodeLayerMask = LayerMask.GetMask("Node Layer");
+        Instance = this;
     }
 
+    private void Start()
+    {
+        grid = NodeGrid.Instance;
+    }
 
     public List<Node> GeneratePath(Node start, Node end)
     {
+        if (start == null || end == null) return new List<Node>();
+        if (start == end) return new List<Node> { start };
+
+        grid.ResetDirtyNodes();
+
         openSet = new List<Node>();
         closedSet = new HashSet<Node>();
 
+        start.gScore = 0;
+        start.hScore = GetHeuristic(start.transform.position,
+                                     end.transform.position);
+        start.camefrom = null;
+        grid.MarkDirty(start);
+
         openSet.Add(start);
+
+        int safetyCounter = 0;
+        int maxIterations = 5000;
 
         while (openSet.Count > 0)
         {
-
-            Node currentNode = openSet[0];
-            for (int i = 1; i < openSet.Count; i++)
+            safetyCounter++;
+            if (safetyCounter > maxIterations)
             {
-                if (openSet[i].fScore() < currentNode.fScore() ||
-                    openSet[i].fScore() == currentNode.fScore() && openSet[i].hScore < currentNode.hScore)
-                {
-                    currentNode = openSet[i];
-                }
+                Debug.LogWarning("JPS: превышен лимит итераций");
+                break;
             }
-
+            Node currentNode = GetLowestFScore();
             openSet.Remove(currentNode);
             closedSet.Add(currentNode);
 
-            if (currentNode.transform.position == end.transform.position)
+            if (currentNode == end)
             {
-                if (closedSet.Count > 10)
-                {
-                    // Debug.Log(closedSet.Count);
-                }
                 return ReconstructPath(start, end);
             }
+            List<Node> successors = IdentifySuccessors(
+                currentNode, start, end
+            );
 
-            List<Node> neighbors = IdentifySuccessors(currentNode, start, end);
-
-            foreach (Node neighbor in neighbors)
+            foreach (Node successor in successors)
             {
-                if (closedSet.Contains(neighbor))
-                {
+                if (closedSet.Contains(successor))
                     continue;
+
+                float tentativeG = currentNode.gScore +
+                    Vector2.Distance(currentNode.transform.position,
+                                     successor.transform.position);
+
+                if (!openSet.Contains(successor))
+                {
+                    successor.gScore = tentativeG;
+                    successor.hScore = GetHeuristic(
+                        successor.transform.position,
+                        end.transform.position
+                    );
+                    successor.camefrom = currentNode;
+                    grid.MarkDirty(successor);
+                    openSet.Add(successor);
                 }
-                float futuregScore = currentNode.gScore + Vector2.Distance(currentNode.transform.position, neighbor.transform.position);
-                if (!openSet.Contains(neighbor))
+                else if (tentativeG < successor.gScore)
                 {
-                    neighbor.gScore = futuregScore;
-                    neighbor.hScore = GetDistance(neighbor.transform.position, end.transform.position);
-                    neighbor.camefrom = currentNode;
-                    openSet.Add(neighbor);
-                } else if (futuregScore < neighbor.gScore)
-                {
-                    neighbor.gScore = futuregScore;
-                    neighbor.camefrom = currentNode;
+                    successor.gScore = tentativeG;
+                    successor.camefrom = currentNode;
                 }
             }
         }
+
         return new List<Node>();
     }
+
 
     private List<Node> IdentifySuccessors(Node current, Node start, Node end)
     {
         List<Node> successors = new List<Node>();
-        List<Vector2Int> directions = PruningDirections(current);
+        List<Vector2Int> directions = GetPrunedDirections(current);
+
         foreach (Vector2Int dir in directions)
         {
-            Node jumpPoint = Jump(current.transform.position, dir, end.transform.position);
-            if (jumpPoint == end)
-            {
-                successors.Clear();
-                successors.Add(jumpPoint);
-                break;
-            }
+            Node jumpPoint = Jump(
+                current.transform.position, dir,
+                end.transform.position, 0
+            );
+
             if (jumpPoint != null && !closedSet.Contains(jumpPoint))
             {
                 successors.Add(jumpPoint);
             }
         }
+
         return successors;
     }
 
 
-    private Node Jump(Vector2 current, Vector2Int direction, Vector2 end)
-    {
-        Vector2 next = current + direction;
-        if(next == end)
-        {
-            return FindNode(end);
-        }
-        if (!DoesNodeExists(next))
-        {
-            return null;
-        }
-        if (direction.x != 0 && direction.y == 0)
-        {
-            if (!DoesNodeExists(new Vector2(next.x, next.y + 1)) && DoesNodeExists(new Vector2(next.x + direction.x, next.y + 1)) ||
-                !DoesNodeExists(new Vector2(next.x, next.y - 1)) && DoesNodeExists(new Vector2(next.x + direction.x, next.y - 1)))
-            {
-                return FindNode(next);
-            }
-        } else if (direction.x == 0 && direction.y != 0)
-        {
-            if (!DoesNodeExists(new Vector2(next.x + 1, next.y)) && DoesNodeExists(new Vector2(next.x + 1, next.y + direction.y)) ||
-                !DoesNodeExists(new Vector2(next.x - 1, next.y)) && DoesNodeExists(new Vector2(next.x - 1, next.y + direction.y)))
-            {
-                return FindNode(next);
-            }
-        } else
-        {
-            if (Jump(next, new Vector2Int(direction.x, 0), end) != null ||
-                Jump(next, new Vector2Int(0, direction.y), end) != null)
-            {
-                return FindNode(next);
-            }
-        }
+    private Node Jump(Vector2 current, Vector2Int dir, Vector2 end, int depth)
+{
+    if (depth > MAX_JUMP_DEPTH) return null;
 
-        return Jump(next, direction, end);
+    Vector2 next = current + (Vector2)dir;
+
+    if (!grid.HasNode(next)) return null;
+
+    Vector2Int nextGrid = new Vector2Int(
+        Mathf.RoundToInt(next.x),
+        Mathf.RoundToInt(next.y)
+    );
+    Vector2Int endGrid = new Vector2Int(
+        Mathf.RoundToInt(end.x),
+        Mathf.RoundToInt(end.y)
+    );
+
+    if (nextGrid == endGrid)
+        return grid.GetNode(nextGrid);
+
+    if (dir.x != 0 && dir.y == 0)
+    {
+        bool wallAbove = !grid.HasNode(new Vector2(next.x, next.y + 1));
+        bool diagAbove =  grid.HasNode(new Vector2(next.x + dir.x, next.y + 1));
+        bool wallBelow = !grid.HasNode(new Vector2(next.x, next.y - 1));
+        bool diagBelow =  grid.HasNode(new Vector2(next.x + dir.x, next.y - 1));
+
+        if ((wallAbove && diagAbove) || (wallBelow && diagBelow))
+        {
+            return grid.GetNode(next);
+        }
+    }
+    else if (dir.x == 0 && dir.y != 0)
+    {
+        bool wallRight = !grid.HasNode(new Vector2(next.x + 1, next.y));
+        bool diagRight =  grid.HasNode(new Vector2(next.x + 1, next.y + dir.y));
+        bool wallLeft  = !grid.HasNode(new Vector2(next.x - 1, next.y));
+        bool diagLeft  =  grid.HasNode(new Vector2(next.x - 1, next.y + dir.y));
+
+        if ((wallRight && diagRight) || (wallLeft && diagLeft))
+        {
+            return grid.GetNode(next);
+        }
+    }
+    else if (dir.x != 0 && dir.y != 0)
+    {
+        bool canPassHoriz = grid.HasNode(new Vector2(current.x + dir.x, current.y));
+        bool canPassVert  = grid.HasNode(new Vector2(current.x, current.y + dir.y));
+
+        if (!canPassHoriz && !canPassVert)
+            return null;
+
+        bool wallBehindH = !grid.HasNode(new Vector2(next.x - dir.x, next.y));
+        bool diagBehindH =  grid.HasNode(new Vector2(next.x - dir.x, next.y + dir.y));
+
+        if (wallBehindH && diagBehindH)
+            return grid.GetNode(next);
+
+        bool wallBehindV = !grid.HasNode(new Vector2(next.x, next.y - dir.y));
+        bool diagBehindV =  grid.HasNode(new Vector2(next.x + dir.x, next.y - dir.y));
+
+        if (wallBehindV && diagBehindV)
+            return grid.GetNode(next);
+
+        if (Jump(next, new Vector2Int(dir.x, 0), end, depth + 1) != null)
+            return grid.GetNode(next);
+
+        if (Jump(next, new Vector2Int(0, dir.y), end, depth + 1) != null)
+            return grid.GetNode(next);
     }
 
-    private List<Vector2Int> PruningDirections(Node node)
+    return Jump(next, dir, end, depth + 1);
+}
+
+
+    private List<Vector2Int> GetPrunedDirections(Node node)
     {
-        List<Vector2Int> directions = new List<Vector2Int>();
+        List<Vector2Int> directions = new List<Vector2Int>(8);
+        Vector3 pos = node.transform.position;
+
         if (node.camefrom == null)
         {
             directions.Add(new Vector2Int(1, 0));
@@ -155,120 +208,97 @@ public class JumpPointSearch : MonoBehaviour
             return directions;
         }
 
-        Vector2Int FromParentToNode = new Vector2Int((int)Mathf.Sign((node.transform.position.x - node.camefrom.transform.position.x)),
-                                               (int)Mathf.Sign(node.transform.position.y - node.camefrom.transform.position.y));
+        Vector3 parentPos = node.camefrom.transform.position;
+        int dx = (int)Mathf.Sign(pos.x - parentPos.x);
+        int dy = (int)Mathf.Sign(pos.y - parentPos.y);
 
-        if (FromParentToNode.x != 0 && FromParentToNode.y != 0)
+        if (dx != 0 && dy != 0)
         {
-            directions.Add(FromParentToNode);
-            directions.Add(new Vector2Int(FromParentToNode.x, 0));
-            directions.Add(new Vector2Int(0, FromParentToNode.y));
-
-            if (DoesNodeExists(new Vector2(node.transform.position.x - FromParentToNode.x, node.transform.position.y)))
+            directions.Add(new Vector2Int(dx, dy));
+            directions.Add(new Vector2Int(dx, 0));
+            directions.Add(new Vector2Int(0, dy));
+            if (!grid.HasNode(new Vector2(pos.x - dx, pos.y)))
             {
-                directions.Add(new Vector2Int(FromParentToNode.x, -FromParentToNode.y));
+                directions.Add(new Vector2Int(-dx, dy));
             }
-            if (DoesNodeExists(new Vector2(node.transform.position.x, node.transform.position.y - FromParentToNode.y)))
+
+            if (!grid.HasNode(new Vector2(pos.x, pos.y - dy)))
             {
-                directions.Add(new Vector2Int(-FromParentToNode.x, FromParentToNode.y));
+                directions.Add(new Vector2Int(dx, -dy));
             }
         }
-        else
+        else if (dx != 0 && dy == 0)
         {
-            directions.Add(FromParentToNode);
-            bool IsNeighborUpForced = false;
-            bool IsNeighborDownForced = false;
+            directions.Add(new Vector2Int(dx, 0));
 
-
-            if (FromParentToNode.x != 0)
+            if (!grid.HasNode(new Vector2(pos.x, pos.y + 1)))
             {
-                if (!DoesNodeExists(new Vector2(node.transform.position.x, node.transform.position.y + 1)))
-                {
-                    directions.Add(new Vector2Int(FromParentToNode.x, 1));
-                    IsNeighborUpForced = true;
-                }
-                if (!DoesNodeExists(new Vector2(node.transform.position.x, node.transform.position.y - 1)))
-                {
-                    directions.Add(new Vector2Int(FromParentToNode.x, -1));
-                    IsNeighborDownForced = true;
-                }
-                if (IsNeighborUpForced && IsNeighborDownForced)
-                {
-                    directions.Add(new Vector2Int(0, 1));
-                    directions.Add(new Vector2Int(0, -1));
-                }
+                directions.Add(new Vector2Int(dx, 1));
             }
-            else
+
+            if (!grid.HasNode(new Vector2(pos.x, pos.y - 1)))
             {
-                if (!DoesNodeExists(new Vector2(node.transform.position.x + 1, node.transform.position.y)))
-                {
-                    directions.Add(new Vector2Int(1, FromParentToNode.y));
-                    IsNeighborUpForced = true;
-                }
-                if (!DoesNodeExists(new Vector2(node.transform.position.x - 1, node.transform.position.y)))
-                {
-                    directions.Add(new Vector2Int(-1, FromParentToNode.y));
-                    IsNeighborDownForced = true;
-                }
-                if (IsNeighborUpForced && IsNeighborDownForced)
-                {
-                    directions.Add(new Vector2Int(1, 0));
-                    directions.Add(new Vector2Int(-1, 0));
-                }
+                directions.Add(new Vector2Int(dx, -1));
             }
         }
+        else if (dx == 0 && dy != 0)
+        {
+            directions.Add(new Vector2Int(0, dy));
+
+            if (!grid.HasNode(new Vector2(pos.x + 1, pos.y)))
+            {
+                directions.Add(new Vector2Int(1, dy));
+            }
+
+            if (!grid.HasNode(new Vector2(pos.x - 1, pos.y)))
+            {
+                directions.Add(new Vector2Int(-1, dy));
+            }
+        }
+
         return directions;
+    }
+
+    private Node GetLowestFScore()
+    {
+        Node best = openSet[0];
+        for (int i = 1; i < openSet.Count; i++)
+        {
+            float f = openSet[i].fScore();
+            float bestF = best.fScore();
+
+            if (f < bestF || (f == bestF && openSet[i].hScore < best.hScore))
+            {
+                best = openSet[i];
+            }
+        }
+        return best;
     }
 
     private List<Node> ReconstructPath(Node start, Node end)
     {
         List<Node> path = new List<Node>();
-        Node curNode = end;
+        Node current = end;
 
-        while (curNode != start)
+        int safety = 0;
+        while (current != null && current != start && safety < 10000)
         {
-            path.Add(curNode);
-            curNode = curNode.camefrom;
+            path.Add(current);
+            current = current.camefrom;
+            safety++;
         }
 
-        path.Add(start);
+        if (current == start)
+            path.Add(start);
+
         path.Reverse();
         return path;
     }
 
-    private bool DoesNodeExists(Vector2 position)
+    private float GetHeuristic(Vector2 a, Vector2 b)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
-        foreach (Collider2D col in colliders)
-        {
-            if (col.gameObject.GetComponent<Node>() != null)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private Node FindNode(Vector2 position)
-    {
-        Node node = null;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
-        foreach (Collider2D col in colliders)
-        {
-            if (col.gameObject.GetComponent<Node>() != null)
-            {
-                node = col.GetComponent<Node>();
-            }
-        }
-        return node;
-    }
-
-    private float GetDistance(Vector2 position, Vector2 Destination)
-    {
-        float dx = Mathf.Abs(position.x - Destination.x);
-        float dy = Mathf.Abs(position.y - Destination.y);
-
+        float dx = Mathf.Abs(a.x - b.x);
+        float dy = Mathf.Abs(a.y - b.y);
         return 1.414f * Mathf.Min(dx, dy) + Mathf.Abs(dx - dy);
     }
-
 }

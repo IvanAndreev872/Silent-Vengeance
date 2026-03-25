@@ -181,7 +181,11 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
+  climbSpeed: 5
+  landingNoiseDuration: 0.3
+  landingNoiseThreshold: -3
+  platformVelocity: {x: 0, y: 0}
 --- !u!1 &7536155868671790125
 GameObject:
   m_ObjectHideFlags: 0

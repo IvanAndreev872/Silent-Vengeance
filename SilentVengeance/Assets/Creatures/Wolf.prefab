@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4424409377482162833}
   - component: {fileID: 9181766470357890687}
   - component: {fileID: 2625495936717013874}
+  - component: {fileID: 4810002518146864682}
+  - component: {fileID: -1086047701833075782}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -189,3 +191,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4810002518146864682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469206898538001353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5e1367af5fa064ebd6102e23c4255c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WolfAI
+  maxHealth: 100
+  moveSpeed: 2
+  chaseSpeed: 4
+  attackDamage: 10
+  attackRange: 1
+  attackCooldown: 1.5
+  detectionRange: 5
+  hearingRange: 3
+  suspicionTime: 3
+  losePlayerTime: 5
+  fieldOfViewAngle: 90
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  patrolPoints: []
+  patrolWaitTime: 2
+  attackPoint: {fileID: 0}
+  howlAlertRadius: 8
+  leapForce: 6
+  leapCooldown: 4
+  packBoostMultiplier: 1.3
+--- !u!114 &-1086047701833075782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469206898538001353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9886aef0e6c35a640b84ccbadf0918e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPathfinding
+  pathRecalcInterval: 0.5
+  nodeReachDistance: 0.3
+  drawDebugPath: 1
