@@ -2,66 +2,42 @@ using UnityEngine;
 
 public class WolfAI : EnemyBase
 {
-    [Header("=== ВОЛК ===")]
+    [Header("=== ВОЛК — СТАЯ ===")]
     [SerializeField] private float howlAlertRadius = 8f;
-    [SerializeField] private float leapForce = 6f;
-    [SerializeField] private float leapCooldown = 4f;
-    [SerializeField] private float packBoostMultiplier = 1.3f;
 
-    private float leapTimer = 0f;
-    private bool isLeaping = false;
-    private bool hasPackNearby = false;
+    private bool hasAlertedPack = false;
 
     protected override void Awake()
     {
         base.Awake();
+
         maxHealth = 60f;
         moveSpeed = 2.5f;
-        chaseSpeed = 5.5f;
+        chaseSpeed = 4.5f;
         attackDamage = 15f;
         attackRange = 1.2f;
-        attackCooldown = 1.0f;
-        detectionRange = 7f;
-        hearingRange = 5f;
-        suspicionTime = 1.5f;
-        losePlayerTime = 8f;
-        fieldOfViewAngle = 120f;
+        attackCooldown = 1.2f;
+        detectionRange = 6f;
+        hearingRange = 4f;
+        suspicionTime = 2f;
+        losePlayerTime = 6f;
+        fieldOfViewAngle = 110f;
         currentHealth = maxHealth;
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        leapTimer -= Time.deltaTime;
-        CheckForPack();
-    }
-
-    private void CheckForPack()
-    {
-        Collider2D[] nearby = Physics2D.OverlapCircleAll(
-            transform.position, howlAlertRadius
-        );
-
-        hasPackNearby = false;
-        foreach (Collider2D col in nearby)
-        {
-            WolfAI other = col.GetComponent<WolfAI>();
-            if (other != null && other != this && !other.IsDead)
-            {
-                hasPackNearby = true;
-                break;
-            }
-        }
     }
 
     protected override void OnEnterState(EnemyState state)
     {
         base.OnEnterState(state);
 
-        if (state == EnemyState.Chase)
+        if (state == EnemyState.Chase && !hasAlertedPack)
         {
             AlertPack();
-            animator?.SetTrigger("Howl");
+            hasAlertedPack = true;
+        }
+
+        if (state == EnemyState.Patrol || state == EnemyState.Idle)
+        {
+            hasAlertedPack = false;
         }
     }
 
@@ -73,75 +49,30 @@ public class WolfAI : EnemyBase
 
         foreach (Collider2D col in nearby)
         {
-            WolfAI other = col.GetComponent<WolfAI>();
-            if (other != null && other != this && !other.IsDead)
+            WolfAI otherWolf = col.GetComponent<WolfAI>();
+
+            if (otherWolf != null && otherWolf != this && !otherWolf.IsDead)
             {
-                other.ReceiveAlert(lastKnownPlayerPosition);
+                otherWolf.ReceiveAlert(lastKnownPlayerPosition);
             }
         }
     }
 
     public void ReceiveAlert(Vector2 playerPos)
     {
-        if (currentState == EnemyState.Chase) return;
+        if (currentState == EnemyState.Chase ||
+            currentState == EnemyState.Attack)
+            return;
+
         lastKnownPlayerPosition = playerPos;
         ChangeState(EnemyState.Chase);
     }
 
-    protected override void HandleChase()
+    protected override void OnDrawGizmosSelected()
     {
-        if (player == null)
-        {
-            ChangeState(EnemyState.Return);
-            return;
-        }
+        base.OnDrawGizmosSelected();
 
-        float distToPlayer = Vector2.Distance(
-            transform.position, player.position
-        );
-
-        if (distToPlayer <= attackRange * 2.5f &&
-            distToPlayer > attackRange &&
-            leapTimer <= 0 && !isLeaping)
-        {
-            Vector2 leapDir = (
-                player.position - transform.position
-            ).normalized;
-            PerformLeap(leapDir);
-            return;
-        }
-
-        if (isLeaping) return;
-
-        float currentSpeed = hasPackNearby
-            ? chaseSpeed * packBoostMultiplier
-            : chaseSpeed;
-
-        UpdateNavigationToTarget(lastKnownPlayerPosition);
-        MoveAlongPath(currentSpeed);
-
-        if (distToPlayer <= attackRange && CanSeePlayer())
-        {
-            pathfinding?.ClearPath();
-            ChangeState(EnemyState.Attack);
-        }
-    }
-
-    private void PerformLeap(Vector2 direction)
-    {
-        isLeaping = true;
-        leapTimer = leapCooldown;
-        pathfinding?.ClearPath();
-
-        Vector2 leapDir = new Vector2(direction.x, 0.5f).normalized;
-        rb.linearVelocity = leapDir * leapForce;
-
-        animator?.SetTrigger("Leap");
-        Invoke(nameof(EndLeap), 0.5f);
-    }
-
-    private void EndLeap()
-    {
-        isLeaping = false;
+        Gizmos.color = new Color(1f, 0.5f, 0f, 0.2f);
+        Gizmos.DrawWireSphere(transform.position, howlAlertRadius);
     }
 }
