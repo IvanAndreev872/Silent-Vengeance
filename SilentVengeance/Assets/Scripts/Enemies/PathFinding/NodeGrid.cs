@@ -19,7 +19,6 @@ public class NodeGrid : MonoBehaviour
     {
         nodeMap.Clear();
         Node[] allNodes = FindObjectsByType<Node>(FindObjectsSortMode.None);
-
         foreach (Node node in allNodes)
         {
             Vector2Int key = node.GridPosition;

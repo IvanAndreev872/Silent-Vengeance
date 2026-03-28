@@ -29,7 +29,6 @@ public class EnemyPathfinding : MonoBehaviour
     public bool RequestPath(Vector2 targetPosition)
     {
         if (grid == null || jps == null) return false;
-
         Node startNode = grid.GetNearestNode(transform.position);
         Node endNode = grid.GetNearestNode(targetPosition);
 
@@ -47,17 +46,15 @@ public class EnemyPathfinding : MonoBehaviour
             hasPath = true;
             return true;
         }
-
         currentPath = jps.GeneratePath(startNode, endNode);
 
         if (currentPath.Count > 0)
         {
             currentPathIndex = 0;
             hasPath = true;
-
             if (currentPath.Count > 1 &&
                 Vector2.Distance(transform.position,
-                    currentPath[0].transform.position) < nodeReachDistance)
+                currentPath[0].transform.position) < nodeReachDistance)
             {
                 currentPathIndex = 1;
             }

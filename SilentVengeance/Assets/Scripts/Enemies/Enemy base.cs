@@ -27,17 +27,6 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("=== ССЫЛКИ ===")]
     [SerializeField] protected Transform attackPoint;
 
-    public enum EnemyState
-    {
-        Idle,
-        Patrol,
-        Suspicious,
-        Chase,
-        Attack,
-        Return,
-        Stunned
-    }
-
     protected float currentHealth;
     protected EnemyState currentState = EnemyState.Patrol;
     protected EnemyState previousState;
@@ -50,7 +39,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected int currentPatrolIndex = 0;
     protected float stateTimer = 0f;
     protected float attackTimer = 0f;
-    protected bool facingRight = true;
+    protected bool facingRight = false;
     protected Vector2 lastKnownPlayerPosition;
     protected float suspicionTimer = 0f;
 
@@ -96,6 +85,8 @@ public abstract class EnemyBase : MonoBehaviour
         {
             CheckForPlayer();
         }
+
+        Debug.Log(currentState);
 
         UpdateAnimations();
     }
@@ -190,7 +181,7 @@ public abstract class EnemyBase : MonoBehaviour
 
         UpdateNavigationToTarget(target.position);
 
-        MoveAlongPath(moveSpeed);
+        MoveAlongPathFull2D(moveSpeed);
 
         if (Vector2.Distance(transform.position, target.position) < 0.5f)
         {
@@ -218,7 +209,7 @@ public abstract class EnemyBase : MonoBehaviour
 
         UpdateNavigationToTarget(lastKnownPlayerPosition);
 
-        MoveAlongPath(chaseSpeed);
+        MoveAlongPathFull2D(chaseSpeed);
 
         float distToPlayer = Vector2.Distance(
             transform.position, player.position
@@ -271,7 +262,7 @@ public abstract class EnemyBase : MonoBehaviour
         Transform closest = GetClosestPatrolPoint();
 
         UpdateNavigationToTarget(closest.position);
-        MoveAlongPath(moveSpeed);
+        MoveAlongPathFull2D(moveSpeed);
 
         if (Vector2.Distance(
                 transform.position, closest.position) < 0.5f)
@@ -510,7 +501,7 @@ public abstract class EnemyBase : MonoBehaviour
         {
             facingRight = shouldFaceRight;
             Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * (facingRight ? 1 : -1);
+            scale.x = Mathf.Abs(scale.x) * (facingRight ? -1 : 1);
             transform.localScale = scale;
         }
     }
@@ -534,6 +525,7 @@ public abstract class EnemyBase : MonoBehaviour
                 closest = point;
             }
         }
+        Debug.Log(closest.transform);
         return closest;
     }
 
