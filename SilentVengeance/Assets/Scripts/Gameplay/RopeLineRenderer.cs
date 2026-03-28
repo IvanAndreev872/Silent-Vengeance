@@ -1,113 +1,123 @@
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class RopeLineRenderer : MonoBehaviour
 {
-    [Header("Rope Settings")]
-    public int segmentCount = 20;
-    public float ropeLength = 5f;
-    public int solverIterations = 40;
+    [Header("Верёвка")]
+    public int   segments       = 20;
+    public float ropeLength     = 5f;
+    public int   solverIterations = 30;
 
-    [Header("Collision")]
+    [Header("Коллизии")]
     public LayerMask groundLayer;
-    public float collisionRadius = 0.1f;
+    public float     collisionRadius = 0.08f;
 
-    private Vector2[] points;
-    private Vector2[] prevPoints;
-    private LineRenderer lr;
+    // Якорь — точка крепления (transform этого объекта)
+    public Vector2 AnchorPosition => (Vector2)transform.position;
 
-    private float SegmentLength => ropeLength / segmentCount;
+    // Кончик верёвки (последняя точка)
+    public Vector2 TipPosition    => _pts[segments];
+
+    private Vector2[]    _pts;
+    private Vector2[]    _prev;
+    private LineRenderer _lr;
+    private float        SegLen => ropeLength / segments;
 
     void Awake()
     {
-        lr = GetComponent<LineRenderer>();
-        lr.positionCount = segmentCount + 1;
+        _lr = GetComponent<LineRenderer>();
+        _lr.positionCount = segments + 1;
 
-        points     = new Vector2[segmentCount + 1];
-        prevPoints = new Vector2[segmentCount + 1];
+        _pts  = new Vector2[segments + 1];
+        _prev = new Vector2[segments + 1];
 
-        // Инициализация: верёвка висит вертикально вниз
-        for (int i = 0; i <= segmentCount; i++)
+        for (int i = 0; i <= segments; i++)
         {
-            Vector2 p = (Vector2)transform.position + Vector2.down * (SegmentLength * i);
-            points[i]     = p;
-            prevPoints[i] = p;
+            var p = AnchorPosition + Vector2.down * (SegLen * i);
+            _pts[i] = _prev[i] = p;
         }
     }
 
     void FixedUpdate()
     {
-        Simulate();
+        Integrate();
         for (int i = 0; i < solverIterations; i++)
         {
-            ApplyConstraints();
-            SolveCollisions();
+            Constrain();
+            Collide();
         }
-        UpdateLineRenderer();
+        Draw();
     }
 
-    void Simulate()
+    void Integrate()
     {
-        Vector2 gravity = Physics2D.gravity * Time.fixedDeltaTime * Time.fixedDeltaTime;
-
-        for (int i = 1; i <= segmentCount; i++) // i=0 закреплён (якорь)
+        var g = Physics2D.gravity * (Time.fixedDeltaTime * Time.fixedDeltaTime);
+        for (int i = 1; i <= segments; i++)
         {
-            Vector2 velocity = points[i] - prevPoints[i];
-            prevPoints[i] = points[i];
-            points[i] += velocity + gravity;
+            var vel   = _pts[i] - _prev[i];
+            _prev[i]  = _pts[i];
+            _pts[i]  += vel + g;
         }
     }
 
-    void ApplyConstraints()
+    void Constrain()
     {
-        // Якорь неподвижен
-        points[0] = transform.position;
+        // Якорь всегда неподвижен
+        _pts[0] = AnchorPosition;
 
-        float segLen = SegmentLength;
-
-        for (int i = 0; i < segmentCount; i++)
+        float len = SegLen;
+        for (int i = 0; i < segments; i++)
         {
-            Vector2 a = points[i];
-            Vector2 b = points[i + 1];
+            var  a    = _pts[i];
+            var  b    = _pts[i + 1];
+            float d   = Vector2.Distance(a, b);
+            if (d < 0.0001f) continue;
 
-            float dist  = Vector2.Distance(a, b);
-            if (dist < 0.0001f) continue;
-
-            float diff  = (dist - segLen) / dist;
-            Vector2 correction = (b - a) * 0.5f * diff;
+            float diff       = (d - len) / d;
+            var   correction = (b - a) * 0.5f * diff;
 
             if (i == 0)
-                points[i + 1] -= correction * 2f;
+                _pts[i + 1] -= correction * 2f;
             else
             {
-                points[i]     += correction;
-                points[i + 1] -= correction;
+                _pts[i]     += correction;
+                _pts[i + 1] -= correction;
             }
         }
     }
 
-    void SolveCollisions()
+    void Collide()
     {
-        for (int i = 1; i <= segmentCount; i++)
+        for (int i = 1; i <= segments; i++)
         {
-            Collider2D hit = Physics2D.OverlapCircle(points[i], collisionRadius, groundLayer);
-            if (hit != null)
-            {
-                Vector2 closest = hit.ClosestPoint(points[i]);
-                Vector2 normal  = (points[i] - closest).normalized;
-                if (normal == Vector2.zero) normal = Vector2.up;
-                points[i] = closest + normal * collisionRadius;
-            }
+            var hit = Physics2D.OverlapCircle(_pts[i], collisionRadius, groundLayer);
+            if (hit == null) continue;
+
+            var closest = hit.ClosestPoint(_pts[i]);
+            var normal  = (_pts[i] - closest).normalized;
+            if (normal == Vector2.zero) normal = Vector2.up;
+            _pts[i] = closest + normal * collisionRadius;
         }
     }
 
-    void UpdateLineRenderer()
+    void Draw()
     {
-        for (int i = 0; i <= segmentCount; i++)
-            lr.SetPosition(i, points[i]);
+        for (int i = 0; i <= segments; i++)
+            _lr.SetPosition(i, _pts[i]);
     }
 
-    public Vector2 GetTipPosition()    => points[segmentCount];
-    public void   SetTipPosition(Vector2 pos) { points[segmentCount] = pos; prevPoints[segmentCount] = pos; }
-    public Vector2 GetTipVelocity()    => points[segmentCount] - prevPoints[segmentCount];
-    public Vector2 GetAnchorPosition() => points[0];
+    // Позволяет внешнему скрипту двигать кончик (без сброса скорости Verlet)
+    public void MoveTip(Vector2 newPos)
+    {
+        var velocity = _pts[segments] - _prev[segments]; // сохраняем скорость
+        _prev[segments] = newPos - velocity;             // чтобы Verlet не менял её
+        _pts[segments]  = newPos;
+    }
+
+    // Полный сброс кончика (при захвате)
+    public void SnapTip(Vector2 pos)
+    {
+        _pts[segments]  = pos;
+        _prev[segments] = pos;
+    }
 }

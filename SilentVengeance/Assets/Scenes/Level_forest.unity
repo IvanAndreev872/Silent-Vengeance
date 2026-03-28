@@ -32431,7 +32431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235c68a3b1aef9c4cbe29193d16cfd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RopeLineRenderer
-  segmentCount: 28
+  segments: 20
   ropeLength: 14
   solverIterations: 60
   groundLayer:
@@ -32637,7 +32637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8237366224850779551, guid: 726e81c11b123f145952c569258de1ec, type: 3}
       propertyPath: moveSpeed
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8237366224850779551, guid: 726e81c11b123f145952c569258de1ec, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -46817,11 +46817,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &1914132287 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 7450592847567477319, guid: 726e81c11b123f145952c569258de1ec, type: 3}
-  m_PrefabInstance: {fileID: 1080647832}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1914132289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46835,12 +46830,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RopeGrab
   rope: {fileID: 1078320469}
-  rb: {fileID: 1914132287}
   grabRadius: 0.8
-  torqueStrength: 1
+  inputTorque: 2
+  angularDamping: 0.995
+  gravityScale: 1
+  maxAngularSpeed: 2.5
   launchMultiplier: 8
-  tensionStiffness: 70
-  horizontalDamping: 0.999
 --- !u!1 &1922463212
 GameObject:
   m_ObjectHideFlags: 0
