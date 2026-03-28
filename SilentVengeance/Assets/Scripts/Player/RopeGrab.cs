@@ -38,7 +38,10 @@ public class RopeGrab : MonoBehaviour
 
     void Update()
     {
-        if (!_grabAction.WasPressedThisFrame())
+         bool releasePressed = _grabAction.WasPressedThisFrame() 
+                          || Keyboard.current.spaceKey.wasPressedThisFrame;
+
+        if (!releasePressed)
             return;
 
         if (!_isGrabbing)
