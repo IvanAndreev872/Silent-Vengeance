@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6298914895944963097}
   - component: {fileID: 3261623699809725968}
   - component: {fileID: 7252501946618091273}
+  - component: {fileID: -741978990609527607}
+  - component: {fileID: -1104434270895182542}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -30,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.529, y: 0.624, z: 0}
-  m_LocalScale: {x: 1.0754, y: 1.0245, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +45,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106270329172196163}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -189,3 +191,56 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-741978990609527607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106270329172196163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2767cd58601b174448e919f5f6c94888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BearAI
+  maxHealth: 100
+  moveSpeed: 2
+  chaseSpeed: 4
+  attackDamage: 10
+  attackRange: 1
+  attackCooldown: 1.5
+  detectionRange: 5
+  hearingRange: 3
+  suspicionTime: 3
+  losePlayerTime: 5
+  fieldOfViewAngle: 90
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  patrolPoints: []
+  patrolWaitTime: 2
+  attackPoint: {fileID: 0}
+  slamDelay: 0.8
+  slamRadius: 1.8
+  slamKnockbackForce: 5
+  slamEffectPrefab: {fileID: 0}
+  shakeIntensity: 0.05
+  warningColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+--- !u!114 &-1104434270895182542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106270329172196163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9886aef0e6c35a640b84ccbadf0918e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPathfinding
+  pathRecalcInterval: 0.5
+  nodeReachDistance: 0.3
+  drawDebugPath: 1
