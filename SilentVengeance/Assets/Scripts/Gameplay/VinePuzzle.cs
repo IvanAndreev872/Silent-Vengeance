@@ -4,7 +4,7 @@ public class VinePuzzle : MonoBehaviour
 {
     [Header("Puzzle")]
     [SerializeField] private Vine[] vines;
-    [SerializeField] private int[] correctOrder; // например: {2, 0, 1}
+    [SerializeField] private int[] correctOrder;
 
     [Header("Chest")]
     [SerializeField] private SpriteRenderer chestRenderer;
@@ -15,13 +15,13 @@ public class VinePuzzle : MonoBehaviour
     [SerializeField] private GameObject keyPrefab;
     [SerializeField] private Transform keySpawnPoint;
 
-    private int[] _playerOrder;
-    private int _currentStep = 0;
-    private bool _isSolved = false;
+    private int[] playerOrder;
+    private int currentStep = 0;
+    private bool isSolved = false;
 
     private void Awake()
     {
-        _playerOrder = new int[correctOrder.Length];
+        playerOrder = new int[correctOrder.Length];
 
         if (chestRenderer != null && closedChestSprite != null)
             chestRenderer.sprite = closedChestSprite;
@@ -29,12 +29,16 @@ public class VinePuzzle : MonoBehaviour
 
     public void OnVinePulled(int index)
     {
-        if (_isSolved) return;
+        if (isSolved) return;
 
-        _playerOrder[_currentStep] = index;
-        _currentStep++;
+        if (currentStep >= playerOrder.Length) return;
 
-        if (_currentStep >= correctOrder.Length)
+        playerOrder[currentStep] = index;
+        currentStep++;
+
+        Debug.Log(name + " -> OnVinePulled: " + index);
+
+        if (currentStep >= correctOrder.Length)
             CheckOrder();
     }
 
@@ -42,8 +46,9 @@ public class VinePuzzle : MonoBehaviour
     {
         for (int i = 0; i < correctOrder.Length; i++)
         {
-            if (_playerOrder[i] != correctOrder[i])
+            if (playerOrder[i] != correctOrder[i])
             {
+                Debug.Log(name + " -> wrong order");
                 Invoke(nameof(ResetAll), 0.5f);
                 return;
             }
@@ -54,12 +59,12 @@ public class VinePuzzle : MonoBehaviour
 
     private void Solve()
     {
-        _isSolved = true;
-        Debug.Log("Головоломка решена!");
+        isSolved = true;
+        Debug.Log(name + " -> solved");
 
         if (chestRenderer != null && openedChestSprite != null)
             chestRenderer.sprite = openedChestSprite;
-        
+
         SpawnKey();
     }
 
@@ -67,24 +72,25 @@ public class VinePuzzle : MonoBehaviour
     {
         if (keyPrefab == null) return;
 
-        Vector3 spawnPos = keySpawnPoint != null
-            ? keySpawnPoint.position
-            : transform.position;
+        Vector3 spawnPos = keySpawnPoint != null ? keySpawnPoint.position : transform.position;
 
         GameObject key = Instantiate(keyPrefab, spawnPos, Quaternion.identity);
 
         Rigidbody2D rb = key.GetComponent<Rigidbody2D>();
         if (rb != null)
-        {
             rb.linearVelocity = new Vector2(Random.Range(-1f, 1f), 2f);
-        }
     }
 
     private void ResetAll()
     {
-        _currentStep = 0;
+        currentStep = 0;
 
-        foreach (var vine in vines)
-            vine.ResetVine();
+        for (int i = 0; i < vines.Length; i++)
+        {
+            if (vines[i] != null)
+                vines[i].ResetVine();
+        }
+
+        Debug.Log(name + " -> reset");
     }
 }

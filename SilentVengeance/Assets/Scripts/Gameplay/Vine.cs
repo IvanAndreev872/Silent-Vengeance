@@ -3,51 +3,61 @@ using UnityEngine.InputSystem;
 
 public class Vine : MonoBehaviour
 {
-    [SerializeField] public int vineIndex;
+    [SerializeField] private int vineIndex;
     [SerializeField] private float dropDistance = 1f;
+    [SerializeField] private VinePuzzle puzzle;
 
-    private Vector3 _startPosition;
-    private bool _isDropped = false;
-    private bool _playerNearby = false;
-    private SpriteRenderer _sr;
-
-    private VinePuzzle _puzzle;
+    private Vector3 startPosition;
+    private bool isDropped = false;
+    private bool playerNearby = false;
+    private SpriteRenderer sr;
 
     private void Awake()
     {
-        _sr = GetComponent<SpriteRenderer>();
-        _startPosition = transform.position;
-        _puzzle = FindObjectOfType<VinePuzzle>();
+        sr = GetComponent<SpriteRenderer>();
+        startPosition = transform.position;
     }
 
     private void Update()
     {
-        if (_playerNearby && !_isDropped && Keyboard.current.eKey.wasPressedThisFrame)
+        if (playerNearby && !isDropped && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
             Drop();
     }
 
     private void Drop()
     {
-        _isDropped = true;
-        transform.position = _startPosition + Vector3.down * dropDistance;
-        _sr.color = Color.green;
-        _puzzle.OnVinePulled(vineIndex);
+        isDropped = true;
+        transform.position = startPosition + Vector3.down * dropDistance;
+
+        if (sr != null)
+            sr.color = Color.green;
+
+        Debug.Log(name + " -> dropped, index = " + vineIndex);
+
+        if (puzzle != null)
+            puzzle.OnVinePulled(vineIndex);
+        else
+            Debug.LogWarning(name + " -> puzzle is NULL", this);
     }
 
     public void ResetVine()
     {
-        _isDropped = false;
-        transform.position = _startPosition;
-        _sr.color = Color.white;
+        isDropped = false;
+        transform.position = startPosition;
+
+        if (sr != null)
+            sr.color = Color.white;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player")) _playerNearby = true;
+        if (col.CompareTag("Player"))
+            playerNearby = true;
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player")) _playerNearby = false;
+        if (col.CompareTag("Player"))
+            playerNearby = false;
     }
 }

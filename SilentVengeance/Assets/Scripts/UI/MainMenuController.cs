@@ -7,50 +7,83 @@ public class MainMenuController : MonoBehaviour
     [Header("Панели")]
     public GameObject menuPanel;
     public GameObject settingsPanel;
+    public GameObject levelSelectPanel;
 
     [Header("Кнопки")]
     public Button startButton;
     public Button settingsButton;
     public Button exitButton;
-    public Button closeSettingsButton; // кнопка "Закрыть" в SettingsPanel
+    public Button closeSettingsButton;
+    public Button level1Button;
+    public Button level2Button;
+    public Button backFromLevelsButton;
 
-    [Header("Сцена")]
-    public string gameSceneName = "SampleScene";
+    [Header("Сцены")]
+    public string level1SceneName = "Level1";
+    public string level2SceneName = "Level2";
 
     void Start()
     {
-        startButton.onClick.AddListener(OnStart);
+        startButton.onClick.AddListener(OpenLevelSelect);
         settingsButton.onClick.AddListener(OpenSettings);
         exitButton.onClick.AddListener(OnExit);
 
         if (closeSettingsButton != null)
             closeSettingsButton.onClick.AddListener(CloseSettings);
 
-        // Начальное состояние
+        if (level1Button != null)
+            level1Button.onClick.AddListener(LoadLevel1);
+
+        if (level2Button != null)
+            level2Button.onClick.AddListener(LoadLevel2);
+
+        if (backFromLevelsButton != null)
+            backFromLevelsButton.onClick.AddListener(BackToMenu);
+
         ShowMenu();
     }
 
     void ShowMenu()
     {
-        menuPanel.SetActive(true);
-        settingsPanel.SetActive(false);
+        if (menuPanel != null) menuPanel.SetActive(true);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
     }
 
     void OpenSettings()
     {
-        menuPanel.SetActive(false);   // скрыть меню
-        settingsPanel.SetActive(true); // показать настройки
+        if (menuPanel != null) menuPanel.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(true);
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
     }
 
     void CloseSettings()
     {
-        settingsPanel.SetActive(false); // скрыть настройки
-        menuPanel.SetActive(true);      // вернуть меню
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (menuPanel != null) menuPanel.SetActive(true);
     }
 
-    void OnStart()
+    void OpenLevelSelect()
     {
-        SceneManager.LoadScene(gameSceneName);
+        if (menuPanel != null) menuPanel.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(true);
+    }
+
+    void BackToMenu()
+    {
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
+        if (menuPanel != null) menuPanel.SetActive(true);
+    }
+
+    void LoadLevel1()
+    {
+        SceneManager.LoadScene(level1SceneName);
+    }
+
+    void LoadLevel2()
+    {
+        SceneManager.LoadScene(level2SceneName);
     }
 
     void OnExit()
