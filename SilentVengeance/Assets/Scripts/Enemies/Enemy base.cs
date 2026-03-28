@@ -86,8 +86,6 @@ public abstract class EnemyBase : MonoBehaviour
             CheckForPlayer();
         }
 
-        Debug.Log(currentState);
-
         UpdateAnimations();
     }
 
