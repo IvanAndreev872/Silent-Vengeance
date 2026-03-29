@@ -169,6 +169,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("IsCrouching", _isCrouching);
             _animator.SetBool("IsRolling", _isRolling);
             _animator.SetFloat("VerticalVelocity", _rb.linearVelocity.y);
+            _animator.SetBool("IsOnLadder", _isOnLadder);
         }
     }
 
