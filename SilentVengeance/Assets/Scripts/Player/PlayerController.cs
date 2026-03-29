@@ -130,11 +130,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            Debug.Log("Space detected via Keyboard.current");
-        }
-
         _moveInput  = _input.Player.Move.ReadValue<Vector2>();
         _isGrounded = Physics2D.OverlapCircle(
             groundCheck.position, groundCheckRadius, groundLayer);
@@ -173,6 +168,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("IsGrounded", _isGrounded);
             _animator.SetBool("IsCrouching", _isCrouching);
             _animator.SetBool("IsRolling", _isRolling);
+            _animator.SetFloat("VerticalVelocity", _rb.linearVelocity.y);
         }
     }
 
@@ -280,9 +276,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext ctx)
     {   
-        Debug.Log($"OnJump called | coyoteTimer: {_coyoteTimer} | isGrounded: {_isGrounded}");
         _jumpRequested = true;
         _jumpBufferTimer = jumpBufferTime;
+
+        if (_animator != null)
+            _animator.SetTrigger("Jump");
     }
 
     private void OnCrouchStart(InputAction.CallbackContext ctx) => _isCrouching = true;
