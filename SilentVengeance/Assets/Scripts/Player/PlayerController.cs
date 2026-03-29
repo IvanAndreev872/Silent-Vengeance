@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private PlayerInputActions _input;
+    private StealthSystem _stealth;
 
     private Vector2 _moveInput;
     private bool _isGrounded;
@@ -66,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public Vector2 platformVelocity = Vector2.zero;
 
-    // Публичные свойства
     public bool IsRunning =>
         _isGrounded && !_isCrouching && !_isRolling && Mathf.Abs(_moveInput.x) > 0.1f;
     public bool IsLanding  => _landingTimer > 0f;
@@ -79,6 +79,9 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
+            if (_stealth != null && _stealth.IsHidden)
+                return 0f;
+            
             if (_isRolling) return 0.1f;
             if (IsLanding)  return 0.9f;
             if (_isCrouching)
@@ -89,11 +92,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool IsHiddenInBush
+    {
+        get
+        {
+            return _stealth != null && _stealth.IsHidden;
+        }
+    }
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _input = new PlayerInputActions();
+        _stealth = GetComponent<StealthSystem>();
     }
 
     private void OnEnable()
@@ -132,17 +144,14 @@ public class PlayerController : MonoBehaviour
 
         DetectLanding();
 
-        // Jump Cooldown
         if (_jumpCooldown > 0f)
             _jumpCooldown -= Time.deltaTime;
 
-        // Coyote Time
         if (_isGrounded && _jumpCooldown <= 0f)
             _coyoteTimer = coyoteTime;
         else if (!_isGrounded)
             _coyoteTimer -= Time.deltaTime;
 
-        // Jump Buffer
         if (_jumpBufferTimer > 0f)
             _jumpBufferTimer -= Time.deltaTime;
         else
@@ -171,7 +180,12 @@ public class PlayerController : MonoBehaviour
     {
         _justJumped = false;
 
-        // Прыжок через Coyote Time + Jump Buffer
+        if (_stealth != null && _stealth.IsHidden)
+        {
+            _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
+            return;
+        }
+
         if (_jumpRequested && _coyoteTimer > 0f && !_isRolling)
         {
             _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -186,7 +200,6 @@ public class PlayerController : MonoBehaviour
 
         float speed = _isCrouching ? crouchSpeed : moveSpeed;
 
-        // GroundSnap отключён во время cooldown после прыжка
         if (_moveInput.x != 0 && !_justJumped && _rb.linearVelocity.y <= 0f && _jumpCooldown <= 0f)
             GroundSnap();
 

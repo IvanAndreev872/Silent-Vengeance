@@ -26,6 +26,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
 
+        StealthSystem stealth = GetComponent<StealthSystem>();
+        stealth?.ForceReveal();
+
         Debug.Log($"Игрок получил {damage} урона. HP: {currentHealth}/{maxHealth}");
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);

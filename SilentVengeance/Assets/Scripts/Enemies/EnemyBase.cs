@@ -286,6 +286,8 @@ public abstract class EnemyBase : MonoBehaviour
     {
         if (player == null) return;
 
+        bool playerIsHidden = IsPlayerHidden();
+
         float distanceToPlayer = Vector2.Distance(
             transform.position, player.position
         );
@@ -527,6 +529,13 @@ public abstract class EnemyBase : MonoBehaviour
         return closest;
     }
 
+    protected bool IsPlayerHidden()
+    {
+        if (player == null) return false;
+
+        StealthSystem stealth = player.GetComponent<StealthSystem>();
+        return stealth != null && stealth.IsHidden;
+    }   
     protected virtual void UpdateAnimations()
     {
         if (animator == null) return;
