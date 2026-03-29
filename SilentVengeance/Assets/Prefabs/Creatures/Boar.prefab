@@ -238,7 +238,7 @@ MonoBehaviour:
   wallSelfDamage: 10
   wallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 832
 --- !u!114 &5677555204883900381
 MonoBehaviour:
   m_ObjectHideFlags: 0

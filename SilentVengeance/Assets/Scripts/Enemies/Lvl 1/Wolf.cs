@@ -13,7 +13,7 @@ public class WolfAI : EnemyBase
 
         maxHealth = 60f;
         moveSpeed = 2.5f;
-        chaseSpeed = 4.5f;
+        chaseSpeed = 7f;
         attackDamage = 15f;
         attackRange = 1.2f;
         attackCooldown = 1.2f;
