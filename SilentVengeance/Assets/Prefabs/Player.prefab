@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8237366224850779551}
   - component: {fileID: 8661531046172141403}
   - component: {fileID: 389916184435288657}
+  - component: {fileID: 8706854527889161730}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -229,6 +230,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
+--- !u!114 &8706854527889161730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834951816584512525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b3b254ce88a1408277bc0fddd387c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StealthSystem
+  hideTransparency: 0.3
+  fadeSpeed: 8
+  bushDetectionRadius: 1
+  bushLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  playerSprite: {fileID: 0}
 --- !u!1 &6206078859983335223
 GameObject:
   m_ObjectHideFlags: 0

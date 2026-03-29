@@ -31,12 +31,12 @@ public class StealthSystem : MonoBehaviour
     {
         _input.Player.Enable();
         
-       /// _input.Player.Hide.performed += OnHide;
+       _input.Player.Hide.performed += OnHide;
     }
 
     private void OnDisable()
     {
-        ///_input.Player.Hide.performed -= OnHide;
+        _input.Player.Hide.performed -= OnHide;
         _input.Player.Disable();
     }
 
