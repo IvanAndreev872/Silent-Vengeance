@@ -291,8 +291,10 @@ public abstract class EnemyBase : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(
             transform.position, player.position
         );
-        bool canSeePlayer = CanSeePlayer();
-        bool canHearPlayer = distanceToPlayer <= hearingRange;
+        bool canSeePlayer = !playerIsHidden && CanSeePlayer();
+        bool canHearPlayer = !playerIsHidden &&
+                            distanceToPlayer <= hearingRange &&
+                            IsPlayerMakingNoise(); 
 
         switch (currentState)
         {
