@@ -12,10 +12,8 @@ public class RopeLineRenderer : MonoBehaviour
     public LayerMask groundLayer;
     public float     collisionRadius = 0.08f;
 
-    // Якорь — точка крепления (transform этого объекта)
     public Vector2 AnchorPosition => (Vector2)transform.position;
 
-    // Кончик верёвки (последняя точка)
     public Vector2 TipPosition    => _pts[segments];
 
     private Vector2[]    _pts;
@@ -62,7 +60,6 @@ public class RopeLineRenderer : MonoBehaviour
 
     void Constrain()
     {
-        // Якорь всегда неподвижен
         _pts[0] = AnchorPosition;
 
         float len = SegLen;
@@ -106,15 +103,13 @@ public class RopeLineRenderer : MonoBehaviour
             _lr.SetPosition(i, _pts[i]);
     }
 
-    // Позволяет внешнему скрипту двигать кончик (без сброса скорости Verlet)
     public void MoveTip(Vector2 newPos)
     {
-        var velocity = _pts[segments] - _prev[segments]; // сохраняем скорость
-        _prev[segments] = newPos - velocity;             // чтобы Verlet не менял её
+        var velocity = _pts[segments] - _prev[segments];
+        _prev[segments] = newPos - velocity;           
         _pts[segments]  = newPos;
     }
 
-    // Полный сброс кончика (при захвате)
     public void SnapTip(Vector2 pos)
     {
         _pts[segments]  = pos;

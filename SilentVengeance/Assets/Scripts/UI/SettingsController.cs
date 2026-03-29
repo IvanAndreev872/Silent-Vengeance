@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class SettingsController : MonoBehaviour
 {
+    [Header("Audio Mixer")]
+    public AudioMixer audioMixer;
+
+    [Header("Sliders")]
     public Slider musicSlider;
     public Slider soundSlider;
 
     void Start()
     {
-        // Стартовые значения
         musicSlider.value = 1f;
         soundSlider.value = 1f;
 
@@ -18,12 +22,13 @@ public class SettingsController : MonoBehaviour
 
     void OnMusicChanged(float value)
     {
-        // Здесь позже подключим AudioMixer
-        Debug.Log("Музыка: " + value);
+        float dB = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
+        audioMixer.SetFloat("MusicVolume", dB);
     }
 
     void OnSoundChanged(float value)
     {
-        Debug.Log("Звук: " + value);
+        float dB = Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
+        audioMixer.SetFloat("SFXVolume", dB);
     }
 }

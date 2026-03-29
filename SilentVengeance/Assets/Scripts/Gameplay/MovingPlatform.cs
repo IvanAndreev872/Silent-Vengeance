@@ -31,7 +31,6 @@ public class MovingPlatform : MonoBehaviour
             if (_waitTimer <= 0f)
                 _waiting = false;
 
-            // Обнуляем скорость платформы во время паузы
             UpdatePlayerVelocity(Vector2.zero);
             return;
         }
@@ -42,7 +41,6 @@ public class MovingPlatform : MonoBehaviour
         float smoothT = Mathf.SmoothStep(0f, 1f, _t);
         Vector2 targetPos = Vector2.Lerp(pointA.position, pointB.position, smoothT);
 
-        // Считаем скорость платформы и передаём игроку
         Vector2 platformVel = (targetPos - _rb.position) / Time.fixedDeltaTime;
         UpdatePlayerVelocity(platformVel);
 

@@ -15,7 +15,7 @@ public class RopeChain2D : MonoBehaviour
         if (_topBody == null)
         {
             _topBody = gameObject.AddComponent<Rigidbody2D>();
-            _topBody.bodyType = RigidbodyType2D.Static; // точка крепления
+            _topBody.bodyType = RigidbodyType2D.Static; 
         }
 
         GenerateRope();
