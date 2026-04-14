@@ -11,10 +11,10 @@ public class RopeGrab : MonoBehaviour
     public float grabRadius = 0.35f;
 
     [Header("Pendulum")]
-    public float inputTorque = 12f;          // насколько игрок может раскачивать маятник
-    public float angularDamping = 0.995f;    // затухание, близко к 1 = плавнее
-    public float gravityScale = 1.0f;        // сила тяжести маятника
-    public float maxAngularSpeed = 4.5f;     // ограничение скорости раскачки
+    public float inputTorque = 12f;          
+    public float angularDamping = 0.995f;    
+    public float gravityScale = 1.0f;        
+    public float maxAngularSpeed = 4.5f;     
 
     [Header("Release")]
     public float launchMultiplier = 1.0f;
@@ -26,8 +26,8 @@ public class RopeGrab : MonoBehaviour
     private bool _isGrabbing;
 
     private float _ropeLength;
-    private float _angle;            // угол относительно вертикали вниз
-    private float _angularVelocity;  // угловая скорость
+    private float _angle;            
+    private float _angularVelocity;  
 
     void Awake()
     {
@@ -68,21 +68,16 @@ public class RopeGrab : MonoBehaviour
         if (_ropeLength < 0.05f)
             _ropeLength = 0.05f;
 
-        // Угол относительно вертикали вниз:
-        // 0 = строго под якорем
         _angle = Mathf.Atan2(dir.x, -dir.y);
 
-        // Перевод текущей линейной скорости в угловую
         Vector2 tangent = new Vector2(Mathf.Cos(_angle), Mathf.Sin(_angle));
         float tangentialSpeed = Vector2.Dot(_rb.linearVelocity, tangent);
         _angularVelocity = tangentialSpeed / _ropeLength;
 
-        // На верёвке Rigidbody больше не управляет положением
         _rb.linearVelocity = Vector2.zero;
         _rb.gravityScale = 0f;
         _rb.bodyType = RigidbodyType2D.Kinematic;
 
-        // Кончик верёвки сразу в игрока
         rope.SnapTip(player);
     }
 
@@ -98,7 +93,7 @@ public class RopeGrab : MonoBehaviour
             dir = Mathf.Sign(_angle);
 
         float horizontalReleaseSpeed = 3.2f;
-        float verticalReleaseSpeed = 0.5f; // очень маленький
+        float verticalReleaseSpeed = 0.5f; 
 
         _rb.linearVelocity = new Vector2(dir * horizontalReleaseSpeed, verticalReleaseSpeed);
     }
@@ -110,12 +105,9 @@ public class RopeGrab : MonoBehaviour
 
         float inputX = _moveAction.ReadValue<Vector2>().x;
 
-        // Уравнение маятника:
-        // theta'' = -(g / L) * sin(theta) + input
         float angularAcceleration =
             -(Physics2D.gravity.magnitude * gravityScale / _ropeLength) * Mathf.Sin(_angle);
 
-        // Игрок помогает раскачке, но не взлетает мгновенно
         angularAcceleration += inputX * inputTorque / _ropeLength;
 
         _angularVelocity += angularAcceleration * Time.fixedDeltaTime;
@@ -133,7 +125,6 @@ public class RopeGrab : MonoBehaviour
 
         Vector2 endPoint = anchor + offset;
 
-        // ЖЁСТКАЯ синхронизация
         _rb.position = endPoint;
         transform.position = endPoint;
         rope.SnapTip(endPoint);
