@@ -116,78 +116,65 @@ public class JumpPointSearch : MonoBehaviour
 
 
     private Node Jump(Vector2 current, Vector2Int dir, Vector2 end, int depth)
-{
-    if (depth > MAX_JUMP_DEPTH) return null;
-
-    Vector2 next = current + (Vector2)dir;
-
-    if (!grid.HasNode(next)) return null;
-
-    Vector2Int nextGrid = new Vector2Int(
-        Mathf.RoundToInt(next.x),
-        Mathf.RoundToInt(next.y)
-    );
-    Vector2Int endGrid = new Vector2Int(
-        Mathf.RoundToInt(end.x),
-        Mathf.RoundToInt(end.y)
-    );
-
-    if (nextGrid == endGrid)
-        return grid.GetNode(nextGrid);
-
-    if (dir.x != 0 && dir.y == 0)
     {
-        bool wallAbove = !grid.HasNode(new Vector2(next.x, next.y + 1));
-        bool diagAbove =  grid.HasNode(new Vector2(next.x + dir.x, next.y + 1));
-        bool wallBelow = !grid.HasNode(new Vector2(next.x, next.y - 1));
-        bool diagBelow =  grid.HasNode(new Vector2(next.x + dir.x, next.y - 1));
+        if (depth > MAX_JUMP_DEPTH) return null;
 
-        if ((wallAbove && diagAbove) || (wallBelow && diagBelow))
+        Vector2 next = current + (Vector2)dir;
+
+        if (!grid.HasNode(next)) return null;
+
+        if (grid.ToGrid(next) == grid.ToGrid(end))
+            return grid.GetNode(next);
+
+        if (dir.x != 0 && dir.y == 0)
         {
-            return grid.GetNode(next);
-        }
-    }
-    else if (dir.x == 0 && dir.y != 0)
-    {
-        bool wallRight = !grid.HasNode(new Vector2(next.x + 1, next.y));
-        bool diagRight =  grid.HasNode(new Vector2(next.x + 1, next.y + dir.y));
-        bool wallLeft  = !grid.HasNode(new Vector2(next.x - 1, next.y));
-        bool diagLeft  =  grid.HasNode(new Vector2(next.x - 1, next.y + dir.y));
+            bool wallAbove = !grid.HasNode(new Vector2(next.x, next.y + 1));
+            bool diagAbove =  grid.HasNode(new Vector2(next.x + dir.x, next.y + 1));
+            bool wallBelow = !grid.HasNode(new Vector2(next.x, next.y - 1));
+            bool diagBelow =  grid.HasNode(new Vector2(next.x + dir.x, next.y - 1));
 
-        if ((wallRight && diagRight) || (wallLeft && diagLeft))
+            if ((wallAbove && diagAbove) || (wallBelow && diagBelow))
+                return grid.GetNode(next);
+        }
+        else if (dir.x == 0 && dir.y != 0)
         {
-            return grid.GetNode(next);
+            bool wallRight = !grid.HasNode(new Vector2(next.x + 1, next.y));
+            bool diagRight =  grid.HasNode(new Vector2(next.x + 1, next.y + dir.y));
+            bool wallLeft  = !grid.HasNode(new Vector2(next.x - 1, next.y));
+            bool diagLeft  =  grid.HasNode(new Vector2(next.x - 1, next.y + dir.y));
+
+            if ((wallRight && diagRight) || (wallLeft && diagLeft))
+                return grid.GetNode(next);
         }
+        else if (dir.x != 0 && dir.y != 0)
+        {
+            bool canPassHoriz = grid.HasNode(new Vector2(current.x + dir.x, current.y));
+            bool canPassVert  = grid.HasNode(new Vector2(current.x, current.y + dir.y));
+
+            if (!canPassHoriz && !canPassVert)
+                return null;
+
+            bool wallBehindH = !grid.HasNode(new Vector2(next.x - dir.x, next.y));
+            bool diagBehindH =  grid.HasNode(new Vector2(next.x - dir.x, next.y + dir.y));
+
+            if (wallBehindH && diagBehindH)
+                return grid.GetNode(next);
+
+            bool wallBehindV = !grid.HasNode(new Vector2(next.x, next.y - dir.y));
+            bool diagBehindV =  grid.HasNode(new Vector2(next.x + dir.x, next.y - dir.y));
+
+            if (wallBehindV && diagBehindV)
+                return grid.GetNode(next);
+
+            if (Jump(next, new Vector2Int(dir.x, 0), end, depth + 1) != null)
+                return grid.GetNode(next);
+
+            if (Jump(next, new Vector2Int(0, dir.y), end, depth + 1) != null)
+                return grid.GetNode(next);
+        }
+
+        return Jump(next, dir, end, depth + 1);
     }
-    else if (dir.x != 0 && dir.y != 0)
-    {
-        bool canPassHoriz = grid.HasNode(new Vector2(current.x + dir.x, current.y));
-        bool canPassVert  = grid.HasNode(new Vector2(current.x, current.y + dir.y));
-
-        if (!canPassHoriz && !canPassVert)
-            return null;
-
-        bool wallBehindH = !grid.HasNode(new Vector2(next.x - dir.x, next.y));
-        bool diagBehindH =  grid.HasNode(new Vector2(next.x - dir.x, next.y + dir.y));
-
-        if (wallBehindH && diagBehindH)
-            return grid.GetNode(next);
-
-        bool wallBehindV = !grid.HasNode(new Vector2(next.x, next.y - dir.y));
-        bool diagBehindV =  grid.HasNode(new Vector2(next.x + dir.x, next.y - dir.y));
-
-        if (wallBehindV && diagBehindV)
-            return grid.GetNode(next);
-
-        if (Jump(next, new Vector2Int(dir.x, 0), end, depth + 1) != null)
-            return grid.GetNode(next);
-
-        if (Jump(next, new Vector2Int(0, dir.y), end, depth + 1) != null)
-            return grid.GetNode(next);
-    }
-
-    return Jump(next, dir, end, depth + 1);
-}
 
 
     private List<Vector2Int> GetPrunedDirections(Node node)

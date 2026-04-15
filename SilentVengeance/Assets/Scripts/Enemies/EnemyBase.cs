@@ -224,6 +224,7 @@ public abstract class EnemyBase : MonoBehaviour
         {
             pathfinding.ForceRecalculate();
         }
+
     }
 
     protected virtual void HandleAttack()

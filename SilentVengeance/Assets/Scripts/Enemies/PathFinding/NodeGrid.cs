@@ -6,11 +6,11 @@ public class NodeGrid : MonoBehaviour
     public static NodeGrid Instance { get; private set; }
 
     private Dictionary<Vector2Int, Node> nodeMap = new Dictionary<Vector2Int, Node>();
-
     private List<Node> dirtyNodes = new List<Node>();
 
     private void Awake()
     {
+        Debug.Log("NodeGrid Awake() вызван");
         Instance = this;
         BuildGrid();
     }
@@ -34,29 +34,36 @@ public class NodeGrid : MonoBehaviour
                 );
             }
         }
-
         Debug.Log($"NodeGrid построена: {nodeMap.Count} нодов");
     }
 
-    public bool HasNode(Vector2Int pos)
+    public Vector2Int ToGrid(Vector2 pos)
     {
-        return nodeMap.ContainsKey(pos);
+        return new Vector2Int(
+            Mathf.RoundToInt(pos.x * 2f),
+            Mathf.RoundToInt(pos.y * 2f)
+        );
     }
 
-    public bool HasNode(Vector2 pos)
+    public bool HasNode(Vector2Int gridKey)
     {
-        return HasNode(ToGrid(pos));
+        return nodeMap.ContainsKey(gridKey);
     }
 
-    public Node GetNode(Vector2Int pos)
+    public bool HasNode(Vector2 worldPos)
     {
-        nodeMap.TryGetValue(pos, out Node node);
+        return nodeMap.ContainsKey(ToGrid(worldPos));
+    }
+
+    public Node GetNode(Vector2Int gridKey)
+    {
+        nodeMap.TryGetValue(gridKey, out Node node);
         return node;
     }
 
-    public Node GetNode(Vector2 pos)
+    public Node GetNode(Vector2 worldPos)
     {
-        return GetNode(ToGrid(pos));
+        return GetNode(ToGrid(worldPos));
     }
 
     public Node GetNearestNode(Vector2 worldPos)
@@ -69,20 +76,21 @@ public class NodeGrid : MonoBehaviour
         Node nearest = null;
         float minDist = float.MaxValue;
 
-        for (int radius = 1; radius <= 5; radius++)
+        for (int gridRadius = 1; gridRadius <= 10; gridRadius++)
         {
-            for (int x = -radius; x <= radius; x++)
+            for (int x = -gridRadius; x <= gridRadius; x++)
             {
-                for (int y = -radius; y <= radius; y++)
+                for (int y = -gridRadius; y <= gridRadius; y++)
                 {
-                    if (Mathf.Abs(x) != radius && Mathf.Abs(y) != radius)
+                    if (Mathf.Abs(x) != gridRadius && Mathf.Abs(y) != gridRadius)
                         continue;
 
                     Vector2Int check = rounded + new Vector2Int(x, y);
                     if (nodeMap.TryGetValue(check, out Node candidate))
                     {
-                        float dist = Vector2.Distance(worldPos,
-                                     candidate.transform.position);
+                        float dist = Vector2.Distance(
+                            worldPos, candidate.transform.position
+                        );
                         if (dist < minDist)
                         {
                             minDist = dist;
@@ -91,7 +99,6 @@ public class NodeGrid : MonoBehaviour
                     }
                 }
             }
-
             if (nearest != null) return nearest;
         }
 
@@ -123,11 +130,5 @@ public class NodeGrid : MonoBehaviour
     {
         Vector2Int key = node.GridPosition;
         nodeMap.Remove(key);
-    }
-
-    private Vector2Int ToGrid(Vector2 pos)
-    {
-        return new Vector2Int(Mathf.RoundToInt(pos.x),
-                              Mathf.RoundToInt(pos.y));
     }
 }
