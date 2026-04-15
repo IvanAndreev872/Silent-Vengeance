@@ -115,4 +115,17 @@ public class RopeLineRenderer : MonoBehaviour
         _pts[segments]  = pos;
         _prev[segments] = pos;
     }
+
+    public Vector2 GetPointPosition(int index)
+    {
+        index = Mathf.Clamp(index, 0, segments);
+        return _pts[index];
+    }
+
+    public void SnapSegment(int index, Vector2 pos)
+    {
+        index = Mathf.Clamp(index, 0, segments);
+        _pts[index] = pos;
+        _prev[index] = pos;
+    }
 }

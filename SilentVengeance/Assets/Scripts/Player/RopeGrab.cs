@@ -9,12 +9,17 @@ public class RopeGrab : MonoBehaviour
 
     [Header("Grab")]
     public float grabRadius = 0.35f;
+    [Tooltip("К какому сегменту цепляется игрок")]
+    public int grabSegmentIndex = 18;
 
     [Header("Pendulum")]
-    public float inputTorque = 12f;          
-    public float angularDamping = 0.995f;    
-    public float gravityScale = 1.0f;        
-    public float maxAngularSpeed = 4.5f;     
+    public float inputTorque = 12f;
+    public float angularDamping = 0.995f;
+    public float gravityScale = 1.0f;
+    public float maxAngularSpeed = 4.5f;
+
+    [Header("Animation")]
+    public Animator animator;
 
     [Header("Release")]
     public float launchMultiplier = 1.0f;
@@ -26,19 +31,22 @@ public class RopeGrab : MonoBehaviour
     private bool _isGrabbing;
 
     private float _ropeLength;
-    private float _angle;            
-    private float _angularVelocity;  
+    private float _angle;
+    private float _angularVelocity;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _grabAction = InputSystem.actions.FindAction("Player/Interact");
         _moveAction = InputSystem.actions.FindAction("Player/Move");
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-         bool releasePressed = _grabAction.WasPressedThisFrame() 
+        bool releasePressed = _grabAction.WasPressedThisFrame()
                           || Keyboard.current.spaceKey.wasPressedThisFrame;
 
         if (!releasePressed)
@@ -46,8 +54,9 @@ public class RopeGrab : MonoBehaviour
 
         if (!_isGrabbing)
         {
-            float distToTip = Vector2.Distance(_rb.position, rope.TipPosition);
-            if (distToTip <= grabRadius)
+            Vector2 grabPoint = GetGrabPoint();
+            float distToGrab = Vector2.Distance(_rb.position, grabPoint);
+            if (distToGrab <= grabRadius)
                 StartGrab();
         }
         else
@@ -56,13 +65,19 @@ public class RopeGrab : MonoBehaviour
         }
     }
 
+    Vector2 GetGrabPoint()
+    {
+        return rope.GetPointPosition(grabSegmentIndex);
+    }
+
     void StartGrab()
     {
         _isGrabbing = true;
 
         Vector2 anchor = rope.AnchorPosition;
-        Vector2 player = _rb.position;
-        Vector2 dir = player - anchor;
+        Vector2 grabPoint = GetGrabPoint();
+
+        Vector2 dir = grabPoint - anchor;
 
         _ropeLength = dir.magnitude;
         if (_ropeLength < 0.05f)
@@ -78,7 +93,10 @@ public class RopeGrab : MonoBehaviour
         _rb.gravityScale = 0f;
         _rb.bodyType = RigidbodyType2D.Kinematic;
 
-        rope.SnapTip(player);
+        rope.SnapSegment(grabSegmentIndex, grabPoint);
+
+        if (animator != null)
+            animator.SetBool("IsGrabbing", true);
     }
 
     void StopGrab()
@@ -93,9 +111,12 @@ public class RopeGrab : MonoBehaviour
             dir = Mathf.Sign(_angle);
 
         float horizontalReleaseSpeed = 3.2f;
-        float verticalReleaseSpeed = 0.5f; 
+        float verticalReleaseSpeed = 0.5f;
 
         _rb.linearVelocity = new Vector2(dir * horizontalReleaseSpeed, verticalReleaseSpeed);
+
+        if (animator != null)
+            animator.SetBool("IsGrabbing", false);
     }
 
     void FixedUpdate()
@@ -117,16 +138,15 @@ public class RopeGrab : MonoBehaviour
         _angle += _angularVelocity * Time.fixedDeltaTime;
 
         Vector2 anchor = rope.AnchorPosition;
-
         Vector2 offset = new Vector2(
-        Mathf.Sin(_angle) * _ropeLength,
-        -Mathf.Cos(_angle) * _ropeLength
+            Mathf.Sin(_angle) * _ropeLength,
+            -Mathf.Cos(_angle) * _ropeLength
         );
 
         Vector2 endPoint = anchor + offset;
 
         _rb.position = endPoint;
         transform.position = endPoint;
-        rope.SnapTip(endPoint);
-        }
+        rope.SnapSegment(grabSegmentIndex, endPoint);
+    }
 }
